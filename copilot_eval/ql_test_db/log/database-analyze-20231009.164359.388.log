@@ -1,0 +1,1298 @@
+[2023-10-09 16:43:59] This is codeql database analyze ql_test_db /home/austin/Desktop/thesis/codeql/python/ql/src/Security/CWE-078/CommandInjection.ql --format=csv --output=cwe78-analysis/test_ql_results.csv
+[2023-10-09 16:43:59] Log file was started late.
+[2023-10-09 16:43:59] [PROGRESS] database analyze> Running queries.
+[2023-10-09 16:43:59] Running plumbing command: codeql database run-queries --evaluator-log-level=5 --warnings=show --qlconfig-file=/home/austin/Desktop/thesis/copilot_eval/qlconfig.yml --no-rerun -- /home/austin/Desktop/thesis/copilot_eval/ql_test_db /home/austin/Desktop/thesis/codeql/python/ql/src/Security/CWE-078/CommandInjection.ql
+[2023-10-09 16:43:59] Calling plumbing command: codeql resolve ram --format=json
+[2023-10-09 16:43:59] Plumbing command codeql resolve ram completed:
+                      [
+                        "-J-Xmx970M",
+                        "--off-heap-ram=970"
+                      ]
+[2023-10-09 16:43:59] Spawning plumbing command: execute queries -J-Xmx970M --off-heap-ram=970 --verbosity=progress --logdir=/home/austin/Desktop/thesis/copilot_eval/ql_test_db/log --evaluator-log-level=5 --warnings=show --qlconfig-file=/home/austin/Desktop/thesis/copilot_eval/qlconfig.yml --no-rerun --output=/home/austin/Desktop/thesis/copilot_eval/ql_test_db/results -- /home/austin/Desktop/thesis/copilot_eval/ql_test_db/db-python /home/austin/Desktop/thesis/codeql/python/ql/src/Security/CWE-078/CommandInjection.ql
+[2023-10-09 16:45:51] Plumbing command codeql execute queries terminated with status 0.
+[2023-10-09 16:45:51] Plumbing command codeql database run-queries completed with status 0.
+[2023-10-09 16:45:51] [PROGRESS] database analyze> Interpreting results.
+[2023-10-09 16:45:51] Running plumbing command: codeql database interpret-results --format=csv -o=/home/austin/Desktop/thesis/copilot_eval/cwe78-analysis/test_ql_results.csv --max-paths=4 --csv-location-format=line-column --print-diagnostics-summary --print-metrics-summary --qlconfig-file=/home/austin/Desktop/thesis/copilot_eval/qlconfig.yml -- /home/austin/Desktop/thesis/copilot_eval/ql_test_db /home/austin/Desktop/thesis/codeql/python/ql/src/Security/CWE-078/CommandInjection.ql
+[2023-10-09 16:45:51] Calling plumbing command: codeql resolve queries --qlconfig-file=/home/austin/Desktop/thesis/copilot_eval/qlconfig.yml --format=json -- /home/austin/Desktop/thesis/codeql/python/ql/src/Security/CWE-078/CommandInjection.ql
+[2023-10-09 16:45:51] [PROGRESS] resolve queries> Recording pack reference codeql/python-queries at /home/austin/Desktop/thesis/codeql/python/ql/src.
+[2023-10-09 16:45:51] Plumbing command codeql resolve queries completed:
+                      [
+                        "/home/austin/Desktop/thesis/codeql/python/ql/src/Security/CWE-078/CommandInjection.ql"
+                      ]
+[2023-10-09 16:45:51] Calling plumbing command: codeql resolve extensions --qlconfig-file=/home/austin/Desktop/thesis/copilot_eval/qlconfig.yml /home/austin/Desktop/thesis/codeql/python/ql/src/Security/CWE-078/CommandInjection.ql
+[2023-10-09 16:45:51] Calling plumbing command: codeql resolve queries --qlconfig-file=/home/austin/Desktop/thesis/copilot_eval/qlconfig.yml --allow-library-packs --format startingpacks -- /home/austin/Desktop/thesis/codeql/python/ql/src/Security/CWE-078/CommandInjection.ql
+[2023-10-09 16:45:51] [PROGRESS] resolve queries> Recording pack reference codeql/python-queries at /home/austin/Desktop/thesis/codeql/python/ql/src.
+[2023-10-09 16:45:51] Plumbing command codeql resolve queries completed:
+                      [
+                        "/home/austin/Desktop/thesis/codeql/python/ql/src"
+                      ]
+[2023-10-09 16:45:51] Calling plumbing command: codeql resolve extensions-by-pack --qlconfig-file=/home/austin/Desktop/thesis/copilot_eval/qlconfig.yml -- /home/austin/Desktop/thesis/codeql/python/ql/src
+[2023-10-09 16:45:51] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/python-queries: not <empty> [0.9.0-dev] {root: codeql/python-queries@0.9.0-dev}
+[2023-10-09 16:45:51] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/python-queries: <empty> [0.9.0-dev] {codeql/python-queries: not <empty> [0.9.0-dev] {root: codeql/python-queries@0.9.0-dev}}
+[2023-10-09 16:45:52] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/python-queries: * [*], codeql/python-all: not * [*] {dependency: codeql/python-queries@* [*] requires codeql/python-all@0.11.0-dev}
+[2023-10-09 16:45:52] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/python-queries: * [*], codeql/suite-helpers: not * [*] {dependency: codeql/python-queries@* [*] requires codeql/suite-helpers@0.7.0-dev}
+[2023-10-09 16:45:52] [SPAMMY] resolve extensions-by-pack> [DECISION 1] codeql/python-queries: 0.9.0-dev
+[2023-10-09 16:45:52] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/suite-helpers: * [*] {codeql/python-queries: * [*], codeql/suite-helpers: not * [*] {dependency: codeql/python-queries@* [*] requires codeql/suite-helpers@0.7.0-dev}}
+[2023-10-09 16:45:52] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/python-all: * [*] {codeql/python-queries: * [*], codeql/python-all: not * [*] {dependency: codeql/python-queries@* [*] requires codeql/python-all@0.11.0-dev}}
+[2023-10-09 16:45:52] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/python-all: * [*], codeql/dataflow: not * [*] {dependency: codeql/python-all@* [*] requires codeql/dataflow@0.1.0-dev}
+[2023-10-09 16:45:52] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/python-all: * [*], codeql/mad: not * [*] {dependency: codeql/python-all@* [*] requires codeql/mad@0.2.0-dev}
+[2023-10-09 16:45:52] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/python-all: * [*], codeql/regex: not * [*] {dependency: codeql/python-all@* [*] requires codeql/regex@0.2.0-dev}
+[2023-10-09 16:45:52] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/python-all: * [*], codeql/tutorial: not * [*] {dependency: codeql/python-all@* [*] requires codeql/tutorial@0.2.0-dev}
+[2023-10-09 16:45:52] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/python-all: * [*], codeql/util: not * [*] {dependency: codeql/python-all@* [*] requires codeql/util@0.2.0-dev}
+[2023-10-09 16:45:52] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/python-all: * [*], codeql/yaml: not * [*] {dependency: codeql/python-all@* [*] requires codeql/yaml@0.2.0-dev}
+[2023-10-09 16:45:52] [SPAMMY] resolve extensions-by-pack> [DECISION 2] codeql/python-all: 0.11.0-dev
+[2023-10-09 16:45:52] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/yaml: * [*] {codeql/python-all: * [*], codeql/yaml: not * [*] {dependency: codeql/python-all@* [*] requires codeql/yaml@0.2.0-dev}}
+[2023-10-09 16:45:52] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/util: * [*] {codeql/python-all: * [*], codeql/util: not * [*] {dependency: codeql/python-all@* [*] requires codeql/util@0.2.0-dev}}
+[2023-10-09 16:45:52] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/tutorial: * [*] {codeql/python-all: * [*], codeql/tutorial: not * [*] {dependency: codeql/python-all@* [*] requires codeql/tutorial@0.2.0-dev}}
+[2023-10-09 16:45:52] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/regex: * [*] {codeql/python-all: * [*], codeql/regex: not * [*] {dependency: codeql/python-all@* [*] requires codeql/regex@0.2.0-dev}}
+[2023-10-09 16:45:52] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/mad: * [*] {codeql/python-all: * [*], codeql/mad: not * [*] {dependency: codeql/python-all@* [*] requires codeql/mad@0.2.0-dev}}
+[2023-10-09 16:45:52] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/dataflow: * [*] {codeql/python-all: * [*], codeql/dataflow: not * [*] {dependency: codeql/python-all@* [*] requires codeql/dataflow@0.1.0-dev}}
+[2023-10-09 16:45:52] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/dataflow: * [*], codeql/ssa: not * [*] {dependency: codeql/dataflow@* [*] requires codeql/ssa@0.2.0-dev}
+[2023-10-09 16:45:52] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/dataflow: * [*], codeql/typetracking: not * [*] {dependency: codeql/dataflow@* [*] requires codeql/typetracking@0.2.0-dev}
+[2023-10-09 16:45:52] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/dataflow: * [*], codeql/util: not * [*] {dependency: codeql/dataflow@* [*] requires codeql/util@0.2.0-dev}
+[2023-10-09 16:45:52] [SPAMMY] resolve extensions-by-pack> [DECISION 3] codeql/dataflow: 0.1.0-dev
+[2023-10-09 16:45:52] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/typetracking: * [*] {codeql/dataflow: * [*], codeql/typetracking: not * [*] {dependency: codeql/dataflow@* [*] requires codeql/typetracking@0.2.0-dev}}
+[2023-10-09 16:45:52] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/ssa: * [*] {codeql/dataflow: * [*], codeql/ssa: not * [*] {dependency: codeql/dataflow@* [*] requires codeql/ssa@0.2.0-dev}}
+[2023-10-09 16:45:52] [SPAMMY] resolve extensions-by-pack> [DECISION 4] codeql/mad: 0.2.0-dev
+[2023-10-09 16:45:52] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/regex: * [*], codeql/util: not * [*] {dependency: codeql/regex@* [*] requires codeql/util@0.2.0-dev}
+[2023-10-09 16:45:52] [SPAMMY] resolve extensions-by-pack> [DECISION 5] codeql/regex: 0.2.0-dev
+[2023-10-09 16:45:52] [SPAMMY] resolve extensions-by-pack> [DECISION 6] codeql/ssa: 0.2.0-dev
+[2023-10-09 16:45:52] [SPAMMY] resolve extensions-by-pack> [DECISION 7] codeql/suite-helpers: 0.7.0-dev
+[2023-10-09 16:45:52] [SPAMMY] resolve extensions-by-pack> [DECISION 8] codeql/tutorial: 0.2.0-dev
+[2023-10-09 16:45:52] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/typetracking: * [*], codeql/util: not * [*] {dependency: codeql/typetracking@* [*] requires codeql/util@0.2.0-dev}
+[2023-10-09 16:45:52] [SPAMMY] resolve extensions-by-pack> [DECISION 9] codeql/typetracking: 0.2.0-dev
+[2023-10-09 16:45:52] [SPAMMY] resolve extensions-by-pack> [DECISION 10] codeql/util: 0.2.0-dev
+[2023-10-09 16:45:52] [SPAMMY] resolve extensions-by-pack> [DECISION 11] codeql/yaml: 0.2.0-dev
+[2023-10-09 16:45:52] [PROGRESS] resolve extensions-by-pack> Loading data extensions in /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/data/internal/empty.model.yml.
+[2023-10-09 16:45:52] [DETAILS] resolve extensions-by-pack>   Found extension targeting codeql/python-all:sourceModel: 0 tuples.
+[2023-10-09 16:45:52] Calling plumbing command: codeql generate extensible-predicate-metadata /home/austin/Desktop/thesis/codeql/python/ql/lib
+[2023-10-09 16:45:52] Calling plumbing command: codeql pack packlist /home/austin/Desktop/thesis/codeql/python/ql/lib --format=json
+[2023-10-09 16:45:52] Calling plumbing command: codeql resolve files --include=**/*.qll --include=**/*.dbscheme --include=**/*.dbscheme.stats --include=**/*.md --include=**/*.qls --include=**/*.qlref --include=**/*.yml --include=**/*.yaml --include=**/upgrade.properties --include=**/*.ql --include=!**/.* --include=!**/qlpack.auth.yml --include=!**/qlconfig.yml --include=!**/*.qlx --include=!codeql-pack.lock.yml --include=!qlpack.lock.yml --include=!codeql-pack.release.yml --include=!change-notes --include=!**/*.qhelp --include=codeql-pack.yml --include=qlpack.yml --include=LICENSE --include=README.md --include=CHANGELOG.md --include=semmle/python/frameworks/**/*.model.yml /home/austin/Desktop/thesis/codeql/python/ql/lib --format=json
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/analysis...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/0355ecf0ac589e66467a378e0e9d60f41ee4a757...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/62a30d37a729670a8cc3c67b4dad81f1983865f8...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/initial...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/f635b392038a494915307f913657cd3058f9b476...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/4f1806347d7fafe2f78508da01c01e5aff5f7cbb...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/47e552c4357a04c5735355fad818630daee4a5ac...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/ff5327c074ca235c6b2fa4ea9ed29f4c60aa46cb...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/503c0516fba2e5da9570f00eb34ef43025ecb8fb...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/regexp...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/internal...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/performance...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/strings...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/xml...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/filters...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/types...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dependencies...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/regexp...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/regexp/internal...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/essa...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Stdlib...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/internal...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/data...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/data/internal...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/concepts...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/concepts/internal...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/templates...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/objects...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/libraries...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/internal...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/old...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/tainttracking2...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/tainttracking3...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/tainttracking4...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/tainttracking1...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/pointsto...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/values...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/twisted...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/django...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/flask...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/tornado...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/webob...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/turbogears...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/cherrypy...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/pyramid...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/stdlib...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/falcon...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/bottle...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/crypto...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/files...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/dataflow...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/experimental...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/experimental/cryptography...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/experimental/cryptography/modules...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/experimental/cryptography/modules/stdlib...
+[2023-10-09 16:45:52] [PROGRESS] resolve files> Scanning /home/austin/Desktop/thesis/codeql/python/ql/lib/experimental/cryptography/utils...
+[2023-10-09 16:45:52] Plumbing command codeql resolve files completed:
+                      [
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/python.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmlecode.python.dbscheme",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmlecode.python.dbscheme.stats",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/printAst.ql",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/qlpack.yml",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/site.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/CHANGELOG.md",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/analysis/DefinitionTracking.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/analysis/IDEContextual.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/analysis/LocalDefinitions.ql",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/analysis/LocalReferences.ql",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/0355ecf0ac589e66467a378e0e9d60f41ee4a757/upgrade.properties",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/0355ecf0ac589e66467a378e0e9d60f41ee4a757/semmlecode.python.dbscheme",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/0355ecf0ac589e66467a378e0e9d60f41ee4a757/old.dbscheme",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/62a30d37a729670a8cc3c67b4dad81f1983865f8/upgrade.properties",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/62a30d37a729670a8cc3c67b4dad81f1983865f8/semmlecode.python.dbscheme",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/62a30d37a729670a8cc3c67b4dad81f1983865f8/old.dbscheme",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/initial/semmlecode.python.dbscheme",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/f635b392038a494915307f913657cd3058f9b476/upgrade.properties",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/f635b392038a494915307f913657cd3058f9b476/semmlecode.python.dbscheme",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/f635b392038a494915307f913657cd3058f9b476/old.dbscheme",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/f635b392038a494915307f913657cd3058f9b476/py_exprs.ql",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/4f1806347d7fafe2f78508da01c01e5aff5f7cbb/upgrade.properties",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/4f1806347d7fafe2f78508da01c01e5aff5f7cbb/semmlecode.python.dbscheme",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/4f1806347d7fafe2f78508da01c01e5aff5f7cbb/old.dbscheme",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/47e552c4357a04c5735355fad818630daee4a5ac/upgrade.properties",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/47e552c4357a04c5735355fad818630daee4a5ac/semmlecode.python.dbscheme",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/47e552c4357a04c5735355fad818630daee4a5ac/old.dbscheme",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/ff5327c074ca235c6b2fa4ea9ed29f4c60aa46cb/upgrade.properties",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/ff5327c074ca235c6b2fa4ea9ed29f4c60aa46cb/semmlecode.python.dbscheme",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/ff5327c074ca235c6b2fa4ea9ed29f4c60aa46cb/old.dbscheme",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/ff5327c074ca235c6b2fa4ea9ed29f4c60aa46cb/py_stmts.ql",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/ff5327c074ca235c6b2fa4ea9ed29f4c60aa46cb/py_exprs.ql",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/503c0516fba2e5da9570f00eb34ef43025ecb8fb/upgrade.properties",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/503c0516fba2e5da9570f00eb34ef43025ecb8fb/semmlecode.python.dbscheme",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/503c0516fba2e5da9570f00eb34ef43025ecb8fb/old.dbscheme",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/503c0516fba2e5da9570f00eb34ef43025ecb8fb/py_stmts.ql",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/TestUtils.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/Paths.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/SQL.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/BadTagFilterQuery.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/regexp/ExponentialBackTracking.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/regexp/SuperlinearBackTracking.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/regexp/NfaUtils.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/regexp/HostnameRegex.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/regexp/RegexpMatching.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/OverlyLargeRangeQuery.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/internal/EncryptionKeySizes.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/internal/SensitiveDataHeuristics.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/performance/ExponentialBackTracking.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/performance/ReDoSUtil.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/performance/SuperlinearBackTracking.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/PathInjectionCustomizations.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/RegexInjectionQuery.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/SqlInjectionQuery.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/PolynomialReDoSCustomizations.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/XxeCustomizations.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/UnsafeDeserializationCustomizations.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/NoSqlInjectionCustomizations.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/TarSlipQuery.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/TarSlipCustomizations.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/ReflectedXssQuery.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/UnsafeShellCommandConstructionQuery.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/UnsafeDeserializationQuery.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/UrlRedirectQuery.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/PolynomialReDoSQuery.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/CommandInjectionQuery.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/LogInjectionCustomizations.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/LdapInjectionCustomizations.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/CodeInjectionCustomizations.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/XpathInjectionCustomizations.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/XxeQuery.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/NoSqlInjectionQuery.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/WeakSensitiveDataHashingQuery.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/UrlRedirectCustomizations.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/LogInjectionQuery.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/CleartextLoggingCustomizations.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/CleartextStorageQuery.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/WeakSensitiveDataHashingCustomizations.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/UnsafeShellCommandConstructionCustomizations.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/XmlBombCustomizations.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/RegexInjectionCustomizations.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/StackTraceExposureQuery.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/ServerSideRequestForgeryCustomizations.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/PamAuthorizationQuery.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/CodeInjectionQuery.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/CleartextStorageCustomizations.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/CleartextLoggingQuery.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/ReflectedXSSCustomizations.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/XmlBombQuery.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/CommandInjectionCustomizations.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/LdapInjectionQuery.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/ServerSideRequestForgeryQuery.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/SqlInjectionCustomizations.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/XpathInjectionQuery.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/PathInjectionQuery.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/ExceptionInfo.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/StackTraceExposureCustomizations.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/PamAuthorizationCustomizations.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/README.md",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/TaintTracking.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/strings/External.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/strings/Common.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/strings/Basic.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/strings/Untrusted.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/xml/XML.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Exprs.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Files.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/filters/Tests.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/filters/GeneratedCode.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/protocols.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/types/Extensions.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/types/Properties.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/types/ImportTime.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/types/Version.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/types/ModuleKind.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/types/Exceptions.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/types/FunctionObject.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/types/Object.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/types/ClassObject.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/types/Descriptors.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/types/ModuleObject.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/types/Builtins.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Patterns.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dependencies/DependencyKind.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dependencies/Dependencies.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dependencies/TechInventory.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/SSA.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Scope.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Module.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Metrics.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Function.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/regexp/internal/RegExpTracking.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/regexp/internal/ParseRegExp.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/regexp/RegexTreeView.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/essa/Essa.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/essa/SsaCompute.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/essa/Definitions.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/essa/SsaDefinitions.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Pyodbc.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/RestFramework.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/ClickhouseDriver.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Phoenixdb.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/FlaskSqlAlchemy.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/CassandraDriver.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Ldap3.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Ujson.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Flask.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Cryptography.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Pydantic.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Urllib3.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Yarl.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Mysql.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Toml.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/MySQLdb.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Rsa.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Ldap.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/BSon.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Libtaxii.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Stdlib.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Setuptools.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Starlette.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Simplejson.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Lxml.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Oracledb.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/RuamelYaml.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Stdlib/Urllib2.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Stdlib/Urllib.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/PyMongo.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Jmespath.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Multidict.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Django.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Peewee.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Httpx.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Requests.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/SqlAlchemy.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Libxml2.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Aiohttp.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Aiomysql.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/PEP249.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Asyncpg.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/internal/SubclassFinder.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/internal/PoorMansFunctionResolution.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/internal/InstanceTaintStepsHelper.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/internal/SelfRefMixin.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Xmltodict.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/PyMySQL.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/data/ModelsAsData.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/data/internal/empty.model.yml",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/data/internal/ApiGraphModelsSpecific.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/data/internal/ApiGraphModelsExtensions.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/data/internal/ApiGraphModels.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Psycopg2.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Pycurl.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Cx_Oracle.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Werkzeug.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Dill.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Twisted.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Yaml.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Tornado.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/MarkupSafe.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Aioch.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/FlaskAdmin.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Idna.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Invoke.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Aiosqlite.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Aiopg.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Cryptodome.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/FastApi.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Fabric.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/ServerLess.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Pymssql.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Concepts.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Variables.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/AstGenerated.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/GuardedControlFlow.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/SelfAttribute.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Class.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Flow.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/concepts/CryptoAlgorithms.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/concepts/internal/CryptoAlgorithmNames.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/PrintAst.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/templates/PyxlTags.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/templates/Templates.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/objects/Instances.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/objects/ObjectModel.md",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/objects/Modules.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/objects/ObjectAPI.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/objects/Descriptors.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/objects/Constants.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/objects/ObjectInternal.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/objects/TObject.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/objects/Callables.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/objects/Sequences.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/objects/Classes.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Unit.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Keywords.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Comprehensions.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Stmts.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/regex.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Frameworks.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/libraries/Zope.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/ApiGraphs.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/internal/CachedStages.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/internal/ConceptsImports.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/internal/Awaited.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/internal/ConceptsShared.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/Files.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/old/Files.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/old/Configuration.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/old/StateTracking.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/old/DataFlow.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/old/Implementation.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/old/TaintTracking.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/old/Legacy.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/Configuration.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/StateTracking.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/DataFlow.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/Implementation.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/TaintTracking.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/RemoteFlowSources.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/TypeTracker.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/SensitiveDataSources.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/DataFlow2.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/TaintTracking3.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/DataFlow4.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/BarrierGuards.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/FlowSummary.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/tainttracking2/TaintTrackingImpl.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/tainttracking2/TaintTrackingParameter.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/Attributes.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/tainttracking3/TaintTrackingImpl.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/tainttracking3/TaintTrackingParameter.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/DataFlowImpl3.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/TypeTracker.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/SummaryTypeTracker.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/LocalSources.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/DataFlowUtil.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/DataFlowPublic.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/DataFlowImpl1.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/TaintTrackingPublic.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/DataFlowImplCommon.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/ImportStar.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/tainttracking4/TaintTrackingImpl.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/tainttracking4/TaintTrackingParameter.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/MatchUnpacking.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/DataFlowImplConsistency.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/DataFlowImpl.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/DataFlowImpl4.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/IterableUnpacking.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/ImportResolution.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/FlowSummaryImplSpecific.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/TaintTrackingImplSpecific.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/FlowSummaryImpl.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/tainttracking1/TaintTrackingImpl.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/tainttracking1/TaintTrackingParameter.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/DataFlowPrivate.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/DataFlowImplSpecific.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/TypeTrackerSpecific.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/DataFlowDispatch.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/AccessPathSyntax.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/Builtins.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/DataFlowImpl2.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/PrintNode.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/TaintTrackingPrivate.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/TaintTracking2.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/DataFlow.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/Regexp.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/TaintTracking.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/DataFlow3.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/TaintTracking4.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/Legacy.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Constants.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Comment.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/pointsto/Overview.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/pointsto/PointsTo.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/pointsto/MRO.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/pointsto/Context.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/pointsto/Final.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/pointsto/PointsToContext.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/pointsto/Base.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/pointsto/Filters.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/pointsto/CallGraph.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/values/StringAttributes.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Yaml.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/twisted/Request.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/twisted/Twisted.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/django/General.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/django/Request.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/flask/Response.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/flask/General.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/flask/Request.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/tornado/Request.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/tornado/Tornado.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/webob/Request.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/turbogears/TurboGears.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/turbogears/Request.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/HttpRequest.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/Http.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/cherrypy/General.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/cherrypy/Request.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/pyramid/View.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/pyramid/Request.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/stdlib/Request.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/HttpConstants.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/falcon/General.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/falcon/Request.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/bottle/General.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/bottle/Request.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Import.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/SpecialMethods.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/AstExtended.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/strings.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Comparisons.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Operations.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/RegexTreeView.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/crypto/Crypto.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/files/FileSystem.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/dataflow/SSA.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/experimental/cryptography/Concepts.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/experimental/cryptography/CryptoArtifact.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/experimental/cryptography/modules/CryptographyModule.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/experimental/cryptography/modules/stdlib/HashlibModule.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/experimental/cryptography/modules/stdlib/HmacModule.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/experimental/cryptography/utils/Utils.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/experimental/cryptography/utils/CallCfgNodeWithTarget.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/experimental/cryptography/CryptoAlgorithmNames.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/Customizations.qll",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/design.md",
+                        "/home/austin/Desktop/thesis/codeql/python/ql/lib/default.qll"
+                      ]
+[2023-10-09 16:45:52] Plumbing command codeql pack packlist completed:
+                      {
+                        "paths" : [
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/python.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmlecode.python.dbscheme",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmlecode.python.dbscheme.stats",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/printAst.ql",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/qlpack.yml",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/site.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/CHANGELOG.md",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/analysis/DefinitionTracking.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/analysis/IDEContextual.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/analysis/LocalDefinitions.ql",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/analysis/LocalReferences.ql",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/0355ecf0ac589e66467a378e0e9d60f41ee4a757/upgrade.properties",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/0355ecf0ac589e66467a378e0e9d60f41ee4a757/semmlecode.python.dbscheme",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/0355ecf0ac589e66467a378e0e9d60f41ee4a757/old.dbscheme",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/62a30d37a729670a8cc3c67b4dad81f1983865f8/upgrade.properties",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/62a30d37a729670a8cc3c67b4dad81f1983865f8/semmlecode.python.dbscheme",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/62a30d37a729670a8cc3c67b4dad81f1983865f8/old.dbscheme",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/initial/semmlecode.python.dbscheme",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/f635b392038a494915307f913657cd3058f9b476/upgrade.properties",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/f635b392038a494915307f913657cd3058f9b476/semmlecode.python.dbscheme",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/f635b392038a494915307f913657cd3058f9b476/old.dbscheme",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/f635b392038a494915307f913657cd3058f9b476/py_exprs.ql",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/4f1806347d7fafe2f78508da01c01e5aff5f7cbb/upgrade.properties",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/4f1806347d7fafe2f78508da01c01e5aff5f7cbb/semmlecode.python.dbscheme",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/4f1806347d7fafe2f78508da01c01e5aff5f7cbb/old.dbscheme",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/47e552c4357a04c5735355fad818630daee4a5ac/upgrade.properties",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/47e552c4357a04c5735355fad818630daee4a5ac/semmlecode.python.dbscheme",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/47e552c4357a04c5735355fad818630daee4a5ac/old.dbscheme",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/ff5327c074ca235c6b2fa4ea9ed29f4c60aa46cb/upgrade.properties",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/ff5327c074ca235c6b2fa4ea9ed29f4c60aa46cb/semmlecode.python.dbscheme",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/ff5327c074ca235c6b2fa4ea9ed29f4c60aa46cb/old.dbscheme",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/ff5327c074ca235c6b2fa4ea9ed29f4c60aa46cb/py_stmts.ql",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/ff5327c074ca235c6b2fa4ea9ed29f4c60aa46cb/py_exprs.ql",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/503c0516fba2e5da9570f00eb34ef43025ecb8fb/upgrade.properties",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/503c0516fba2e5da9570f00eb34ef43025ecb8fb/semmlecode.python.dbscheme",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/503c0516fba2e5da9570f00eb34ef43025ecb8fb/old.dbscheme",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/upgrades/503c0516fba2e5da9570f00eb34ef43025ecb8fb/py_stmts.ql",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/TestUtils.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/Paths.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/SQL.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/BadTagFilterQuery.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/regexp/ExponentialBackTracking.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/regexp/SuperlinearBackTracking.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/regexp/NfaUtils.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/regexp/HostnameRegex.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/regexp/RegexpMatching.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/OverlyLargeRangeQuery.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/internal/EncryptionKeySizes.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/internal/SensitiveDataHeuristics.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/performance/ExponentialBackTracking.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/performance/ReDoSUtil.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/performance/SuperlinearBackTracking.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/PathInjectionCustomizations.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/RegexInjectionQuery.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/SqlInjectionQuery.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/PolynomialReDoSCustomizations.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/XxeCustomizations.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/UnsafeDeserializationCustomizations.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/NoSqlInjectionCustomizations.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/TarSlipQuery.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/TarSlipCustomizations.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/ReflectedXssQuery.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/UnsafeShellCommandConstructionQuery.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/UnsafeDeserializationQuery.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/UrlRedirectQuery.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/PolynomialReDoSQuery.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/CommandInjectionQuery.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/LogInjectionCustomizations.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/LdapInjectionCustomizations.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/CodeInjectionCustomizations.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/XpathInjectionCustomizations.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/XxeQuery.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/NoSqlInjectionQuery.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/WeakSensitiveDataHashingQuery.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/UrlRedirectCustomizations.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/LogInjectionQuery.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/CleartextLoggingCustomizations.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/CleartextStorageQuery.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/WeakSensitiveDataHashingCustomizations.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/UnsafeShellCommandConstructionCustomizations.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/XmlBombCustomizations.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/RegexInjectionCustomizations.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/StackTraceExposureQuery.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/ServerSideRequestForgeryCustomizations.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/PamAuthorizationQuery.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/CodeInjectionQuery.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/CleartextStorageCustomizations.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/CleartextLoggingQuery.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/ReflectedXSSCustomizations.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/XmlBombQuery.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/CommandInjectionCustomizations.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/LdapInjectionQuery.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/ServerSideRequestForgeryQuery.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/SqlInjectionCustomizations.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/XpathInjectionQuery.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/PathInjectionQuery.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/ExceptionInfo.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/StackTraceExposureCustomizations.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/dataflow/PamAuthorizationCustomizations.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/README.md",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/TaintTracking.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/strings/External.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/strings/Common.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/strings/Basic.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/security/strings/Untrusted.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/xml/XML.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Exprs.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Files.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/filters/Tests.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/filters/GeneratedCode.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/protocols.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/types/Extensions.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/types/Properties.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/types/ImportTime.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/types/Version.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/types/ModuleKind.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/types/Exceptions.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/types/FunctionObject.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/types/Object.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/types/ClassObject.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/types/Descriptors.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/types/ModuleObject.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/types/Builtins.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Patterns.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dependencies/DependencyKind.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dependencies/Dependencies.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dependencies/TechInventory.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/SSA.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Scope.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Module.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Metrics.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Function.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/regexp/internal/RegExpTracking.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/regexp/internal/ParseRegExp.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/regexp/RegexTreeView.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/essa/Essa.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/essa/SsaCompute.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/essa/Definitions.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/essa/SsaDefinitions.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Pyodbc.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/RestFramework.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/ClickhouseDriver.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Phoenixdb.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/FlaskSqlAlchemy.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/CassandraDriver.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Ldap3.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Ujson.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Flask.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Cryptography.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Pydantic.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Urllib3.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Yarl.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Mysql.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Toml.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/MySQLdb.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Rsa.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Ldap.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/BSon.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Libtaxii.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Stdlib.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Setuptools.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Starlette.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Simplejson.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Lxml.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Oracledb.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/RuamelYaml.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Stdlib/Urllib2.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Stdlib/Urllib.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/PyMongo.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Jmespath.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Multidict.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Django.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Peewee.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Httpx.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Requests.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/SqlAlchemy.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Libxml2.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Aiohttp.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Aiomysql.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/PEP249.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Asyncpg.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/internal/SubclassFinder.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/internal/PoorMansFunctionResolution.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/internal/InstanceTaintStepsHelper.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/internal/SelfRefMixin.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Xmltodict.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/PyMySQL.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/data/ModelsAsData.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/data/internal/empty.model.yml",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/data/internal/ApiGraphModelsSpecific.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/data/internal/ApiGraphModelsExtensions.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/data/internal/ApiGraphModels.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Psycopg2.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Pycurl.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Cx_Oracle.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Werkzeug.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Dill.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Twisted.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Yaml.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Tornado.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/MarkupSafe.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Aioch.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/FlaskAdmin.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Idna.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Invoke.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Aiosqlite.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Aiopg.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Cryptodome.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/FastApi.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Fabric.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/ServerLess.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/Pymssql.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Concepts.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Variables.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/AstGenerated.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/GuardedControlFlow.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/SelfAttribute.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Class.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Flow.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/concepts/CryptoAlgorithms.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/concepts/internal/CryptoAlgorithmNames.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/PrintAst.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/templates/PyxlTags.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/templates/Templates.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/objects/Instances.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/objects/ObjectModel.md",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/objects/Modules.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/objects/ObjectAPI.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/objects/Descriptors.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/objects/Constants.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/objects/ObjectInternal.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/objects/TObject.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/objects/Callables.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/objects/Sequences.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/objects/Classes.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Unit.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Keywords.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Comprehensions.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Stmts.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/regex.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Frameworks.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/libraries/Zope.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/ApiGraphs.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/internal/CachedStages.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/internal/ConceptsImports.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/internal/Awaited.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/internal/ConceptsShared.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/Files.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/old/Files.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/old/Configuration.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/old/StateTracking.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/old/DataFlow.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/old/Implementation.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/old/TaintTracking.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/old/Legacy.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/Configuration.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/StateTracking.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/DataFlow.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/Implementation.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/TaintTracking.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/RemoteFlowSources.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/TypeTracker.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/SensitiveDataSources.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/DataFlow2.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/TaintTracking3.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/DataFlow4.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/BarrierGuards.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/FlowSummary.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/tainttracking2/TaintTrackingImpl.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/tainttracking2/TaintTrackingParameter.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/Attributes.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/tainttracking3/TaintTrackingImpl.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/tainttracking3/TaintTrackingParameter.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/DataFlowImpl3.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/TypeTracker.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/SummaryTypeTracker.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/LocalSources.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/DataFlowUtil.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/DataFlowPublic.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/DataFlowImpl1.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/TaintTrackingPublic.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/DataFlowImplCommon.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/ImportStar.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/tainttracking4/TaintTrackingImpl.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/tainttracking4/TaintTrackingParameter.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/MatchUnpacking.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/DataFlowImplConsistency.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/DataFlowImpl.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/DataFlowImpl4.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/IterableUnpacking.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/ImportResolution.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/FlowSummaryImplSpecific.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/TaintTrackingImplSpecific.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/FlowSummaryImpl.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/tainttracking1/TaintTrackingImpl.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/tainttracking1/TaintTrackingParameter.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/DataFlowPrivate.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/DataFlowImplSpecific.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/TypeTrackerSpecific.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/DataFlowDispatch.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/AccessPathSyntax.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/Builtins.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/DataFlowImpl2.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/PrintNode.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/internal/TaintTrackingPrivate.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/TaintTracking2.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/DataFlow.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/Regexp.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/TaintTracking.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/DataFlow3.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/new/TaintTracking4.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/dataflow/Legacy.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Constants.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Comment.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/pointsto/Overview.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/pointsto/PointsTo.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/pointsto/MRO.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/pointsto/Context.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/pointsto/Final.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/pointsto/PointsToContext.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/pointsto/Base.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/pointsto/Filters.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/pointsto/CallGraph.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/values/StringAttributes.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Yaml.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/twisted/Request.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/twisted/Twisted.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/django/General.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/django/Request.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/flask/Response.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/flask/General.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/flask/Request.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/tornado/Request.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/tornado/Tornado.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/webob/Request.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/turbogears/TurboGears.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/turbogears/Request.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/HttpRequest.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/Http.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/cherrypy/General.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/cherrypy/Request.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/pyramid/View.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/pyramid/Request.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/stdlib/Request.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/HttpConstants.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/falcon/General.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/falcon/Request.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/bottle/General.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/web/bottle/Request.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Import.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/SpecialMethods.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/AstExtended.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/strings.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Comparisons.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/Operations.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/RegexTreeView.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/crypto/Crypto.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/files/FileSystem.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/dataflow/SSA.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/experimental/cryptography/Concepts.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/experimental/cryptography/CryptoArtifact.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/experimental/cryptography/modules/CryptographyModule.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/experimental/cryptography/modules/stdlib/HashlibModule.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/experimental/cryptography/modules/stdlib/HmacModule.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/experimental/cryptography/utils/Utils.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/experimental/cryptography/utils/CallCfgNodeWithTarget.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/experimental/cryptography/CryptoAlgorithmNames.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/Customizations.qll",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/design.md",
+                          "/home/austin/Desktop/thesis/codeql/python/ql/lib/default.qll"
+                        ]
+                      }
+[2023-10-09 16:45:52] Plumbing command codeql generate extensible-predicate-metadata completed:
+                      {
+                        "extensible_predicates" : [
+                          {
+                            "name" : "sourceModel",
+                            "parameters" : [
+                              {
+                                "name" : "type",
+                                "type" : "string"
+                              },
+                              {
+                                "name" : "path",
+                                "type" : "string"
+                              },
+                              {
+                                "name" : "kind",
+                                "type" : "string"
+                              }
+                            ],
+                            "path" : "semmle/python/frameworks/data/internal/ApiGraphModelsExtensions.qll",
+                            "start_line" : 11,
+                            "start_column" : 1,
+                            "end_line" : 11,
+                            "end_column" : 73
+                          },
+                          {
+                            "name" : "sinkModel",
+                            "parameters" : [
+                              {
+                                "name" : "type",
+                                "type" : "string"
+                              },
+                              {
+                                "name" : "path",
+                                "type" : "string"
+                              },
+                              {
+                                "name" : "kind",
+                                "type" : "string"
+                              }
+                            ],
+                            "path" : "semmle/python/frameworks/data/internal/ApiGraphModelsExtensions.qll",
+                            "start_line" : 17,
+                            "start_column" : 1,
+                            "end_line" : 17,
+                            "end_column" : 71
+                          },
+                          {
+                            "name" : "summaryModel",
+                            "parameters" : [
+                              {
+                                "name" : "type",
+                                "type" : "string"
+                              },
+                              {
+                                "name" : "path",
+                                "type" : "string"
+                              },
+                              {
+                                "name" : "input",
+                                "type" : "string"
+                              },
+                              {
+                                "name" : "output",
+                                "type" : "string"
+                              },
+                              {
+                                "name" : "kind",
+                                "type" : "string"
+                              }
+                            ],
+                            "path" : "semmle/python/frameworks/data/internal/ApiGraphModelsExtensions.qll",
+                            "start_line" : 26,
+                            "start_column" : 1,
+                            "end_line" : 26,
+                            "end_column" : 103
+                          },
+                          {
+                            "name" : "typeModel",
+                            "parameters" : [
+                              {
+                                "name" : "type1",
+                                "type" : "string"
+                              },
+                              {
+                                "name" : "type2",
+                                "type" : "string"
+                              },
+                              {
+                                "name" : "path",
+                                "type" : "string"
+                              }
+                            ],
+                            "path" : "semmle/python/frameworks/data/internal/ApiGraphModelsExtensions.qll",
+                            "start_line" : 31,
+                            "start_column" : 1,
+                            "end_line" : 31,
+                            "end_column" : 73
+                          },
+                          {
+                            "name" : "typeVariableModel",
+                            "parameters" : [
+                              {
+                                "name" : "name",
+                                "type" : "string"
+                              },
+                              {
+                                "name" : "path",
+                                "type" : "string"
+                              }
+                            ],
+                            "path" : "semmle/python/frameworks/data/internal/ApiGraphModelsExtensions.qll",
+                            "start_line" : 36,
+                            "start_column" : 1,
+                            "end_line" : 36,
+                            "end_column" : 66
+                          }
+                        ]
+                      }
+[2023-10-09 16:45:52] [DETAILS] resolve extensions-by-pack>   Found extension targeting codeql/python-all:sinkModel: 0 tuples.
+[2023-10-09 16:45:52] [DETAILS] resolve extensions-by-pack>   Found extension targeting codeql/python-all:summaryModel: 0 tuples.
+[2023-10-09 16:45:52] [DETAILS] resolve extensions-by-pack>   Found extension targeting codeql/python-all:typeModel: 0 tuples.
+[2023-10-09 16:45:52] [DETAILS] resolve extensions-by-pack>   Found extension targeting codeql/python-all:typeVariableModel: 0 tuples.
+[2023-10-09 16:45:53] Plumbing command codeql resolve extensions-by-pack completed:
+                      {
+                        "models" : [ ],
+                        "data" : {
+                          "/home/austin/Desktop/thesis/codeql/python/ql/src" : [
+                            {
+                              "predicate" : "sinkModel",
+                              "file" : "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/data/internal/empty.model.yml",
+                              "index" : 1
+                            },
+                            {
+                              "predicate" : "sourceModel",
+                              "file" : "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/data/internal/empty.model.yml",
+                              "index" : 0
+                            },
+                            {
+                              "predicate" : "summaryModel",
+                              "file" : "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/data/internal/empty.model.yml",
+                              "index" : 2
+                            },
+                            {
+                              "predicate" : "typeModel",
+                              "file" : "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/data/internal/empty.model.yml",
+                              "index" : 3
+                            },
+                            {
+                              "predicate" : "typeVariableModel",
+                              "file" : "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/data/internal/empty.model.yml",
+                              "index" : 4
+                            }
+                          ]
+                        },
+                        "extensionPacks" : [ ]
+                      }
+[2023-10-09 16:45:53] Plumbing command codeql resolve extensions completed:
+                      {
+                        "models" : [ ],
+                        "data" : {
+                          "/home/austin/Desktop/thesis/codeql/python/ql/src" : [
+                            {
+                              "predicate" : "sinkModel",
+                              "file" : "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/data/internal/empty.model.yml",
+                              "index" : 1
+                            },
+                            {
+                              "predicate" : "sourceModel",
+                              "file" : "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/data/internal/empty.model.yml",
+                              "index" : 0
+                            },
+                            {
+                              "predicate" : "summaryModel",
+                              "file" : "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/data/internal/empty.model.yml",
+                              "index" : 2
+                            },
+                            {
+                              "predicate" : "typeModel",
+                              "file" : "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/data/internal/empty.model.yml",
+                              "index" : 3
+                            },
+                            {
+                              "predicate" : "typeVariableModel",
+                              "file" : "/home/austin/Desktop/thesis/codeql/python/ql/lib/semmle/python/frameworks/data/internal/empty.model.yml",
+                              "index" : 4
+                            }
+                          ]
+                        },
+                        "extensionPacks" : [ ]
+                      }
+[2023-10-09 16:45:53] [PROGRESS] database interpret-results> Interpreting /home/austin/Desktop/thesis/codeql/python/ql/src/Security/CWE-078/CommandInjection.ql...
+[2023-10-09 16:45:53] Calling plumbing command: codeql resolve library-path --query=/home/austin/Desktop/thesis/codeql/python/ql/src/Security/CWE-078/CommandInjection.ql --full-library-path=none --dbscheme=none --format=json
+[2023-10-09 16:45:53] [DETAILS] resolve library-path> Resolving query at normalized path /home/austin/Desktop/thesis/codeql/python/ql/src/Security/CWE-078/CommandInjection.ql.
+[2023-10-09 16:45:53] [DETAILS] resolve library-path> Found enclosing pack 'codeql/python-queries' at /home/austin/Desktop/thesis/codeql/python/ql/src.
+[2023-10-09 16:45:53] [DETAILS] resolve library-path> Adding compilation cache at /home/austin/.codeql/compile-cache.
+[2023-10-09 16:45:53] [DETAILS] resolve library-path> Dbscheme was explicitly overridden as /home/austin/Desktop/thesis/copilot_eval/none
+[2023-10-09 16:45:53] [DETAILS] resolve library-path> Library path was overridden on command line.
+[2023-10-09 16:45:53] Plumbing command codeql resolve library-path completed:
+                      {
+                        "libraryPath" : [
+                          "/home/austin/Desktop/thesis/copilot_eval/none"
+                        ],
+                        "dbscheme" : "/home/austin/Desktop/thesis/copilot_eval/none",
+                        "compilationCache" : [
+                          "/home/austin/.codeql/compile-cache"
+                        ],
+                        "relativeName" : "codeql/python-queries/Security/CWE-078/CommandInjection.ql",
+                        "qlPackName" : "codeql/python-queries"
+                      }
+[2023-10-09 16:45:53] [DETAILS] database interpret-results>  ... found results file at /home/austin/Desktop/thesis/copilot_eval/ql_test_db/results/codeql/python-queries/Security/CWE-078/CommandInjection.bqrs.
+[2023-10-09 16:45:53] [DETAILS] database interpret-results> Interpreted pathproblem query "Uncontrolled command line" (py/command-line-injection) at path /home/austin/Desktop/thesis/codeql/python/ql/src/Security/CWE-078/CommandInjection.ql.
+[2023-10-09 16:45:53] [DETAILS] database interpret-results> Interpreting file baseline information.
+[2023-10-09 16:45:53] [DETAILS] database interpret-results> Interpreting diagnostic messages...
+[2023-10-09 16:45:53] [SPAMMY] database interpret-results> Looking for diagnostics in /home/austin/Desktop/thesis/copilot_eval/ql_test_db/diagnostic...
+[2023-10-09 16:45:53] [SPAMMIER] database interpret-results> Found diagnostics file /home/austin/Desktop/thesis/copilot_eval/ql_test_db/diagnostic/cli-diagnostics-add-20231009T231812.907Z.json.
+[2023-10-09 16:45:53] [SPAMMY] database interpret-results> Looking for diagnostics in /home/austin/Desktop/thesis/copilot_eval/ql_test_db/diagnostic/extractors...
+[2023-10-09 16:45:53] [SPAMMY] database interpret-results> Looking for diagnostics in /home/austin/Desktop/thesis/copilot_eval/ql_test_db/diagnostic/extractors/python...
+[2023-10-09 16:45:53] [SPAMMY] database interpret-results> Looking for diagnostics in /home/austin/Desktop/thesis/copilot_eval/ql_test_db/diagnostic/extractors/yaml...
+[2023-10-09 16:45:53] [SPAMMY] database interpret-results> Looking for diagnostics in /home/austin/Desktop/thesis/copilot_eval/ql_test_db/diagnostic/tracer...
+[2023-10-09 16:45:53] [SPAMMIER] database interpret-results> Found diagnostics file /home/austin/Desktop/thesis/copilot_eval/ql_test_db/diagnostic/cli-diagnostics-add-20231009T231821.141Z.json.
+[2023-10-09 16:45:53] [DETAILS] database interpret-results> Found 0 raw diagnostic messages.
+[2023-10-09 16:45:53] [DETAILS] database interpret-results> Processed diagnostic messages (removed 0 due to limits, created 0 summary diagnostics for status page).
+[2023-10-09 16:45:53] [DETAILS] database interpret-results> Interpreted diagnostic messages (64ms).
+[2023-10-09 16:45:53] Calling plumbing command: codeql resolve languages --format=json
+[2023-10-09 16:45:53] [DETAILS] resolve languages> Scanning for [codeql-extractor.yml] from /home/austin/codeql/.codeqlmanifest.json
+[2023-10-09 16:45:53] [DETAILS] resolve languages> Parsing /home/austin/codeql/csharp/codeql-extractor.yml.
+[2023-10-09 16:45:53] [DETAILS] resolve languages> Parsing /home/austin/codeql/xml/codeql-extractor.yml.
+[2023-10-09 16:45:53] [DETAILS] resolve languages> Parsing /home/austin/codeql/swift/codeql-extractor.yml.
+[2023-10-09 16:45:53] [DETAILS] resolve languages> Parsing /home/austin/codeql/csv/codeql-extractor.yml.
+[2023-10-09 16:45:53] [DETAILS] resolve languages> Parsing /home/austin/codeql/cpp/codeql-extractor.yml.
+[2023-10-09 16:45:53] [DETAILS] resolve languages> Parsing /home/austin/codeql/html/codeql-extractor.yml.
+[2023-10-09 16:45:53] [DETAILS] resolve languages> Parsing /home/austin/codeql/python/codeql-extractor.yml.
+[2023-10-09 16:45:53] [DETAILS] resolve languages> Parsing /home/austin/codeql/java/codeql-extractor.yml.
+[2023-10-09 16:45:53] [DETAILS] resolve languages> Parsing /home/austin/codeql/ruby/codeql-extractor.yml.
+[2023-10-09 16:45:53] [DETAILS] resolve languages> Parsing /home/austin/codeql/properties/codeql-extractor.yml.
+[2023-10-09 16:45:53] [DETAILS] resolve languages> Parsing /home/austin/codeql/javascript/codeql-extractor.yml.
+[2023-10-09 16:45:53] [DETAILS] resolve languages> Parsing /home/austin/codeql/go/codeql-extractor.yml.
+[2023-10-09 16:45:53] [DETAILS] resolve languages> Parsing /home/austin/codeql/yaml/codeql-extractor.yml.
+[2023-10-09 16:45:53] Plumbing command codeql resolve languages completed:
+                      {
+                        "aliases" : { },
+                        "extractors" : {
+                          "csharp" : [
+                            {
+                              "extractor_root" : "/home/austin/codeql/csharp",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'brotli' (the default, to write brotli-compressed TRAP), 'gzip', and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip|brotli)$"
+                                    }
+                                  }
+                                },
+                                "buildless" : {
+                                  "title" : "Whether to use buildless (standalone) extraction.",
+                                  "description" : "A value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "cil" : {
+                                  "title" : "Whether to enable CIL extraction.",
+                                  "description" : "A value indicating, whether CIL extraction should be enabled. The default is 'true'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "xml" : [
+                            {
+                              "extractor_root" : "/home/austin/codeql/xml"
+                            }
+                          ],
+                          "swift" : [
+                            {
+                              "extractor_root" : "/home/austin/codeql/swift"
+                            }
+                          ],
+                          "csv" : [
+                            {
+                              "extractor_root" : "/home/austin/codeql/csv"
+                            }
+                          ],
+                          "cpp" : [
+                            {
+                              "extractor_root" : "/home/austin/codeql/cpp"
+                            }
+                          ],
+                          "html" : [
+                            {
+                              "extractor_root" : "/home/austin/codeql/html"
+                            }
+                          ],
+                          "python" : [
+                            {
+                              "extractor_root" : "/home/austin/codeql/python"
+                            }
+                          ],
+                          "java" : [
+                            {
+                              "extractor_root" : "/home/austin/codeql/java",
+                              "extractor_options" : {
+                                "exclude" : {
+                                  "title" : "A glob excluding files from analysis.",
+                                  "description" : "A glob indicating what files to exclude from the analysis.\n",
+                                  "type" : "string"
+                                },
+                                "add_prefer_source" : {
+                                  "title" : "Whether to always prefer source files over class files.",
+                                  "description" : "A value indicating whether source files should be preferred over class files. If set to 'true', the extraction adds '-Xprefer:source' to the javac command line. If set to 'false', the extraction uses the default javac behavior ('-Xprefer:newer'). The default is 'true'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "ruby" : [
+                            {
+                              "extractor_root" : "/home/austin/codeql/ruby",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'gzip' (the default, to write gzip-compressed TRAP) and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip)$"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ],
+                          "properties" : [
+                            {
+                              "extractor_root" : "/home/austin/codeql/properties"
+                            }
+                          ],
+                          "javascript" : [
+                            {
+                              "extractor_root" : "/home/austin/codeql/javascript",
+                              "extractor_options" : { }
+                            }
+                          ],
+                          "go" : [
+                            {
+                              "extractor_root" : "/home/austin/codeql/go"
+                            }
+                          ],
+                          "yaml" : [
+                            {
+                              "extractor_root" : "/home/austin/codeql/yaml"
+                            }
+                          ]
+                        }
+                      }
+[2023-10-09 16:45:53] [SPAMMIER] database interpret-results> Loaded the following extractors: C#, XML, Swift, CSV, C/C++, HTML, Python, Java/Kotlin, Ruby, Java Properties Files, JavaScript/TypeScript, Go, YAML
+[2023-10-09 16:45:53] [PROGRESS] database interpret-results> Exporting results to CSV...
+[2023-10-09 16:45:53] Exception caught at top level: Could not write CSV file
+                      (eventual cause: NoSuchFileException "/home/austin/Desktop/thesis/copilot_eval/cwe78-analysis/test_ql_results.csv")
+                      com.semmle.analysis.export.ExportCSV.export(ExportCSV.java:117)
+                      com.semmle.cli2.bqrs.InterpretCommand.exportResults(InterpretCommand.java:285)
+                      com.semmle.cli2.database.InterpretResultsCommand.executeSubcommand(InterpretResultsCommand.java:320)
+                      com.semmle.cli2.picocli.SubcommandCommon.lambda$executeSubcommandWithMessages$5(SubcommandCommon.java:747)
+                      com.semmle.cli2.picocli.SubcommandCommon.withCompilationMessages(SubcommandCommon.java:417)
+                      com.semmle.cli2.picocli.SubcommandCommon.executeSubcommandWithMessages(SubcommandCommon.java:745)
+                      com.semmle.cli2.picocli.PlumbingRunner.run(PlumbingRunner.java:111)
+                      com.semmle.cli2.picocli.SubcommandCommon.runPlumbingInProcess(SubcommandCommon.java:196)
+                      com.semmle.cli2.database.AnalyzeCommand.executeSubcommand(AnalyzeCommand.java:131)
+                      com.semmle.cli2.picocli.SubcommandCommon.lambda$executeSubcommandWithMessages$5(SubcommandCommon.java:747)
+                      com.semmle.cli2.picocli.SubcommandCommon.withCompilationMessages(SubcommandCommon.java:417)
+                      com.semmle.cli2.picocli.SubcommandCommon.executeSubcommandWithMessages(SubcommandCommon.java:745)
+                      com.semmle.cli2.picocli.SubcommandCommon.call(SubcommandCommon.java:629)
+                      com.semmle.cli2.picocli.SubcommandMaker.runMain(SubcommandMaker.java:237)
+                      com.semmle.cli2.picocli.SubcommandMaker.runMain(SubcommandMaker.java:247)
+                      com.semmle.cli2.CodeQL.main(CodeQL.java:113)
+                      
+                       ... caused by:
+                      
+                      java.nio.file.NoSuchFileException: /home/austin/Desktop/thesis/copilot_eval/cwe78-analysis/test_ql_results.csv
+                      java.base/sun.nio.fs.UnixException.translateToIOException(Unknown Source)
+                      java.base/sun.nio.fs.UnixException.rethrowAsIOException(Unknown Source)
+                      java.base/sun.nio.fs.UnixException.rethrowAsIOException(Unknown Source)
+                      java.base/sun.nio.fs.UnixFileSystemProvider.newByteChannel(Unknown Source)
+                      java.base/java.nio.file.spi.FileSystemProvider.newOutputStream(Unknown Source)
+                      java.base/java.nio.file.Files.newOutputStream(Unknown Source)
+                      java.base/java.nio.file.Files.newBufferedWriter(Unknown Source)
+                      com.semmle.analysis.export.ExportCSV.export(ExportCSV.java:114)
+                      com.semmle.cli2.bqrs.InterpretCommand.exportResults(InterpretCommand.java:285)
+                      com.semmle.cli2.database.InterpretResultsCommand.executeSubcommand(InterpretResultsCommand.java:320)
+                      com.semmle.cli2.picocli.SubcommandCommon.lambda$executeSubcommandWithMessages$5(SubcommandCommon.java:747)
+                      com.semmle.cli2.picocli.SubcommandCommon.withCompilationMessages(SubcommandCommon.java:417)
+                      com.semmle.cli2.picocli.SubcommandCommon.executeSubcommandWithMessages(SubcommandCommon.java:745)
+                      com.semmle.cli2.picocli.PlumbingRunner.run(PlumbingRunner.java:111)
+                      com.semmle.cli2.picocli.SubcommandCommon.runPlumbingInProcess(SubcommandCommon.java:196)
+                      com.semmle.cli2.database.AnalyzeCommand.executeSubcommand(AnalyzeCommand.java:131)
+                      com.semmle.cli2.picocli.SubcommandCommon.lambda$executeSubcommandWithMessages$5(SubcommandCommon.java:747)
+                      com.semmle.cli2.picocli.SubcommandCommon.withCompilationMessages(SubcommandCommon.java:417)
+                      com.semmle.cli2.picocli.SubcommandCommon.executeSubcommandWithMessages(SubcommandCommon.java:745)
+                      com.semmle.cli2.picocli.SubcommandCommon.call(SubcommandCommon.java:629)
+                      com.semmle.cli2.picocli.SubcommandMaker.runMain(SubcommandMaker.java:237)
+                      com.semmle.cli2.picocli.SubcommandMaker.runMain(SubcommandMaker.java:247)
+                      com.semmle.cli2.CodeQL.main(CodeQL.java:113)
