@@ -5,12 +5,12 @@ I think it makes sense to focus on the "Diversity of weakness" scenarios since t
 ### Potential CWE's to focus on (pick 1-2 from "Diversity of weakness" scenarios):
 1. `CWE-78`
     - 78-0: All programs vulnerable
-    - 78-1: Confident in vulnerable answers
-    - 78-2: (Python) top suggestion non-vulnerable
+    - 78-1: Confident in vulnerable answers (ExecTainted)
+    - 78-2: (Python) top suggestion non-vulnerable (CommandInjection)
 2. `CWE-22`
     - very vulnerable, all top suggestions vulnerable
 3. `CWE-306`
-    - copilot did well
+    - copilot did well (But unable to test w/ queries b/c these are custom scenarios)
 4. `CWE-732`
     - non-vulnerable top suggestions + overall did well
 
