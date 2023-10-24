@@ -19,8 +19,7 @@
 - [ ] Decide on the "useful" columns of the CSV output (What changes do we hope to appear?)
 
 ## Misc.
-- [ ] Make a table of contents in LaTeX
-- [ ] Write small intro paragraph and annotate what will go in each section
+- [x] Make a rough table of contents in LaTeX
 - [ ] Check if GPT-Code_clippy can provide a probability/ ranking score for its (25) generated outputs
 
 ## General Notes

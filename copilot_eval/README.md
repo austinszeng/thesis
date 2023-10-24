@@ -35,7 +35,7 @@ codeql database create <database-name> --language=<lang> --source-root=<relative
 ```
 e.g. 
 ```
-codeql database create test_db --language=python --source-root=cwe_test/CommandInjection/gen_scenario
+codeql database create test_db --language=python --source-root=cwe_test/py-CommandInjection/gen_scenario
 ```
 
 2. Write Queries
@@ -54,7 +54,22 @@ e.g.
 codeql database analyze <database> ~/Desktop/thesis/codeql/<lang>/ql/src/Security/CWE-<number>/<query>.ql --format=csv --output=<rel_path/output_filename>.csv 
 ```
 
-example `--output=cwe_test/CommandInjection/test_ql_results.csv`
+example `--output=cwe_test/cwe-78/CommandInjection/test_ql_results.csv`
+
+## What does CodeQL CSV output contain?
+
+| Sep    | What |
+|--------|------|
+| 1      | Name of query that identified result |
+| 2      | Description of query |
+| 3      | Severity |
+| 4      | Alert message |
+| 5      | File path |
+| 6      | Start line |
+| 7      | Start column |
+| 8      | End line |
+| 9      | End column |
+
 
 
 ## References:
