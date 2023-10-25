@@ -8,7 +8,7 @@ I think it makes sense to focus on the "Diversity of weakness" scenarios since t
     - 78-1: Confident in vulnerable answers (ExecTainted)
     - 78-2: (Python) top suggestion non-vulnerable (CommandInjection)
 2. `CWE-22`
-    - very vulnerable, all top suggestions vulnerable
+    - very vulnerable, all but one is vulnerable for C.
 3. `CWE-306`
     - copilot did well (But unable to test w/ queries b/c these are custom scenarios)
 4. `CWE-732`
