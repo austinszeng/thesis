@@ -1,4 +1,12 @@
 # Notes
+
+## Extended Requirements
+### PyTorch installation (depends on OS)
+Refer to: [PyTorch](https://pytorch.org/get-started/locally)
+
+Linux/Pip/CPU command: 
+```pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu```
+
 ## Input to focus on
 I think it makes sense to focus on the "Diversity of weakness" scenarios since this category of scenarios is the simplst in terms of writing prompts for the goal of possibly introducing a CWE ("Diversity of prompt" plays around with minute changes and "Diversity of domain" looks at lesser used languages).
 
@@ -56,11 +64,6 @@ codeql database analyze <database> ~/Desktop/thesis/codeql/<lang>/ql/src/Securit
 ```
 
 example `--output=cwe_test/cwe-78/CommandInjection/test_ql_results.csv`
-
-
-## Extended requirements:
-[PyTorch](https://pytorch.org/get-started/locally)
-My command: ```pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu```
 
 ## References:
 - [GPT-Code_clippy](https://github.com/CodedotAl/gpt-code-clippy)
