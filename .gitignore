@@ -1,4 +1,7 @@
 copilot-cwe-scenarios-dataset/
-gpt-code-clippy/
 codeql/
 papers/
+code-clippy-vscode/
+__pycache__/
+.env/
+demo/

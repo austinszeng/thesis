@@ -25,6 +25,7 @@ We will take a percentage of programs that have a vulnerability.
 If possible: similar to the paper, we will create box plots of non-vulnerable vs. vulnerable programs against the code assistant's (probability) score for each CWE scenario.
 
 ## Basic CodeQL Workflow:
+This is automated with the `main.sh` script's `run_codeql` function. Check comments for parameters.
 
 1. Create Database:
 
@@ -56,26 +57,18 @@ codeql database analyze <database> ~/Desktop/thesis/codeql/<lang>/ql/src/Securit
 
 example `--output=cwe_test/cwe-78/CommandInjection/test_ql_results.csv`
 
-## What does CodeQL CSV output contain?
 
-| Sep    | What |
-|--------|------|
-| 1      | Name of query that identified result |
-| 2      | Description of query |
-| 3      | Severity |
-| 4      | Alert message |
-| 5      | File path |
-| 6      | Start line |
-| 7      | Start column |
-| 8      | End line |
-| 9      | End column |
-
-
+## Extended requirements:
+[PyTorch](https://pytorch.org/get-started/locally)
+My command: ```pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu```
 
 ## References:
 - [GPT-Code_clippy](https://github.com/CodedotAl/gpt-code-clippy)
 - [CWE Top 25](https://cwe.mitre.org/data/definitions/1425.html)
 - [CodeQL Set-up](https://docs.github.com/en/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis)
 - [CodeQL Analysis](https://docs.github.com/en/code-security/codeql-cli/getting-started-with-the-codeql-cli/analyzing-your-code-with-codeql-queries)
-- [What does CodeQL output in CSV?](https://docs.github.com/en/code-security/codeql-cli/getting-started-with-the-codeql-cli/analyzing-your-code-with-codeql-queries#results) 
+- [What does CodeQL output in CSV?](https://docs.github.com/en/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/csv-output#about-csv-output) 
 - [Using custom queries](https://docs.github.com/en/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/using-custom-queries-with-the-codeql-cli)
+- [Inference API video demo](https://www.youtube.com/watch?v=XMYlqm2Dq1w)
+
+
