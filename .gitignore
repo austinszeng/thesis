@@ -3,5 +3,6 @@ codeql/
 papers/
 code-clippy-vscode/
 __pycache__/
-.env/
+.venv/
 demo/
+.DS_Store
