@@ -13,5 +13,5 @@ def get_program(rel_path):
     cwd = os.getcwd()
     abs_path = os.path.join(cwd, rel_path)
     with open(abs_path, 'r') as file:
-        input = file.read()
-        return input
+        content = file.read()
+    return content
