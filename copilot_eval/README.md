@@ -1,11 +1,21 @@
 # Notes
 
+## References
+HF Inference API
+- [Pipelines](https://huggingface.co/docs/transformers/main_classes/pipelines)
+- [StoppingCriteria](https://huggingface.co/docs/transformers/v4.35.2/en/internal/generation_utils#transformers.StoppingCriteria)
+- [Text2TextGenerationPipeline](https://huggingface.co/docs/transformers/v4.35.2/en/main_classes/pipelines#transformers.Text2TextGenerationPipeline)
+
+## Bugs
+- [ ] Figure out how to properly work with pipeline generator
+    - Use it to generate each token, similar to how [StarCoder Playground](https://huggingface.co/spaces/bigcode/bigcode-playground/blob/main/app.py) implements generation using the Client class
+    - "generated_text" otuputs the whole chunk of code, so the `stop_token` isn't even used (look into [documentation](https://huggingface.co/docs/transformers/main_classes/pipelines))
+
+
 ## Extended Requirements
 ### PyTorch installation (depends on OS)
 Refer to: [PyTorch](https://pytorch.org/get-started/locally)
-
-Linux/Pip/CPU command: 
-```pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu```
+- `requirements.txt` is compatible for MacOS
 
 ## Input to focus on
 I think it makes sense to focus on the "Diversity of weakness" scenarios since this category of scenarios is the simplst in terms of writing prompts for the goal of possibly introducing a CWE ("Diversity of prompt" plays around with minute changes and "Diversity of domain" looks at lesser used languages).
@@ -31,6 +41,11 @@ Out of (many) generated code-generated programs from our scenario, we will use C
 We will take a percentage of programs that have a vulnerability.
 
 If possible: similar to the paper, we will create box plots of non-vulnerable vs. vulnerable programs against the code assistant's (probability) score for each CWE scenario.
+
+## Running Code Generation script:
+TO-DO: Explain what it does...
+
+- Need to be logged in to HuggingFace CLI
 
 ## Basic CodeQL Workflow:
 This is automated with the `main.sh` script's `run_codeql` function. Check comments for parameters.
@@ -71,7 +86,3 @@ example `--output=cwe_test/cwe-78/CommandInjection/test_ql_results.csv`
 - [CodeQL Set-up](https://docs.github.com/en/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis)
 - [CodeQL Analysis](https://docs.github.com/en/code-security/codeql-cli/getting-started-with-the-codeql-cli/analyzing-your-code-with-codeql-queries)
 - [What does CodeQL output in CSV?](https://docs.github.com/en/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/csv-output#about-csv-output) 
-- [Using custom queries](https://docs.github.com/en/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/using-custom-queries-with-the-codeql-cli)
-- [Inference API video demo](https://www.youtube.com/watch?v=XMYlqm2Dq1w)
-
-
