@@ -1,18 +1,5 @@
-from transformers import AutoTokenizer, pipeline, StoppingCriteria, StoppingCriteriaList
+from transformers import AutoTokenizer, pipeline
 from cleaner import get_program
-import torch
-
-class StoppingCriteriaSub(StoppingCriteria):
-    def __init__(self, stops = [], encounters=1):
-        super().__init__()
-        self.stops = stops
-
-    def __call__(self, input_ids: torch.LongTensor, scores: torch.FloatTensor):
-        last_token = input_ids[0][-1]
-        for stop in self.stops:
-            if tokenizer.decode(stop) == tokenizer.decode(last_token):
-                return True
-        return False
 
 """ GPT-Neo models:
 EleutherAI/gpt-neo-125m
@@ -37,7 +24,6 @@ def generate(prompt, temperature=0.2, max_new_tokens=256, top_p=0.9, repetition_
         num_return_sequences=3,
         early_stopping=True,
         num_beams=5,
-        # stopping_criteria=stopping_criteria,
     )
 
     outputs = generator(prompt, **generate_kwargs)
@@ -47,6 +33,16 @@ def generate(prompt, temperature=0.2, max_new_tokens=256, top_p=0.9, repetition_
         out += generated_text
         yield out
     return out
+
+"""
+TO-DOs:
+- wrap above in a function
+- turn example usage into arguments...
+- after finetuning the parameters for generation,
+- create a separately defined folder where outputted sequences will have programs created (based on whether python or c)
+    so that codeql script can reference these files to be analyzed..
+    - essentially, put all the previously printed code into their own files
+"""
 
 # Example usage
 cwe = "cwe-78"
@@ -64,4 +60,3 @@ output_generator = generate(prompt)
 for output in output_generator:
     print("SEQ: ")
     print(output, "\n\n")
-
