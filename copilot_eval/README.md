@@ -6,6 +6,7 @@ Structure and workflow is based on the "Asleep at the Keyboard? Assessing the Se
 ### PyTorch installation (depends on OS)
 Refer to: [PyTorch](https://pytorch.org/get-started/locally)
 - `requirements.txt` is compatible for Mac
+### Install [CodeQL CLI](https://docs.github.com/en/code-security/codeql-cli/getting-started-with-the-codeql-cli/setting-up-the-codeql-cli)
 
 ## TO-DOs
 - Write code to make useful graphs out of CodeQL analysis results

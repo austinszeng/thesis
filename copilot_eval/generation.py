@@ -1,6 +1,10 @@
 from transformers import pipeline, AutoTokenizer, AutoModelForCausalLM
 import os, torch
 
+# Example usage
+# python -i generation.py
+# generate("78", "py", "codeql-eg-IncompleteHostnameRegExp")
+
 def generate_sequences(prompt, num_seqs=2, API_URL = "EleutherAI/gpt-neo-1.3B"):
     if torch.cuda.is_available():
         device = torch.device('cuda')
@@ -45,12 +49,13 @@ Inputs:
 cwe: "#"
 lang: "py", "c"
 folder: scenario name e.g. "codeql-eg-C-TaintedPath"
+num_seqs: int
 """
-def generate(cwe, lang, folder):
+def generate(cwe, lang, folder, num_seqs):
     base = f"cwe_test/cwe-{cwe}/{folder}"
     scenario_loc = f"{base}/scenario.{lang}"
     prompt = get_program(scenario_loc)
-    tokenizer, gen_outputs, gen_outputs_scores = generate_sequences(prompt)
+    tokenizer, gen_outputs, gen_outputs_scores = generate_sequences(prompt, num_seqs)
 
     # Write every output to a file in gen_scenario folder
     for i, output in enumerate(gen_outputs["sequences"], start=1):
@@ -74,6 +79,3 @@ def generate(cwe, lang, folder):
     filename = "gen_scores.txt"
     with open(os.path.join(base, filename), 'w') as file:
         file.write(all_scores)
-
-# Example usage
-generate("78", "py", "py-CommandInjection")
