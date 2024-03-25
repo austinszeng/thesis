@@ -1,0 +1,10 @@
+---
+sourceLocationPrefix: /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/gen_scenario
+baselineLinesOfCode: 329
+unicodeNewlines: false
+columnKind: utf32
+primaryLanguage: python
+creationMetadata:
+  cliVersion: 2.16.5
+  creationTime: 2024-03-25T16:41:21.589718659Z
+finalised: true

@@ -1,0 +1,75 @@
+[2024-03-25 16:40:10] This is codeql execute queries -J-Xmx6381M --off-heap-ram=7938 --verbosity=progress --logdir=/home/ec2-user/Desktop/thesis/copilot_eval/analyze_dbs/log --evaluator-log-level=5 --warnings=show --qlconfig-file=/home/ec2-user/Desktop/thesis/copilot_eval/qlconfig.yml --no-rerun --interpret-passthrough=null,--format=csv,-o=/home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/codeql_results.csv,--max-paths=4,--csv-location-format=line-column,--print-diagnostics-summary,--print-metrics-summary,--qlconfig-file=/home/ec2-user/Desktop/thesis/copilot_eval/qlconfig.yml,--,/home/ec2-user/Desktop/thesis/copilot_eval/analyze_dbs,/home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/IncompleteHostnameRegExp.ql --output=/home/ec2-user/Desktop/thesis/copilot_eval/analyze_dbs/results -- /home/ec2-user/Desktop/thesis/copilot_eval/analyze_dbs/db-python /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/IncompleteHostnameRegExp.ql
+[2024-03-25 16:40:10] Calling plumbing command: codeql resolve queries --qlconfig-file=/home/ec2-user/Desktop/thesis/copilot_eval/qlconfig.yml --format=json -- /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/IncompleteHostnameRegExp.ql
+[2024-03-25 16:40:10] [PROGRESS] resolve queries> Recording pack reference (anonymous QL pack at /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/IncompleteHostnameRegExp.ql) at /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp.
+[2024-03-25 16:40:10] Plumbing command codeql resolve queries completed:
+                      [
+                        "/home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/IncompleteHostnameRegExp.ql"
+                      ]
+[2024-03-25 16:40:10] Creating executor with 1 threads.
+[2024-03-25 16:40:10] Calling plumbing command: codeql resolve extensions --qlconfig-file=/home/ec2-user/Desktop/thesis/copilot_eval/qlconfig.yml /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/IncompleteHostnameRegExp.ql
+[2024-03-25 16:40:10] Calling plumbing command: codeql resolve queries --qlconfig-file=/home/ec2-user/Desktop/thesis/copilot_eval/qlconfig.yml --allow-library-packs --format startingpacks -- /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/IncompleteHostnameRegExp.ql
+[2024-03-25 16:40:10] [PROGRESS] resolve queries> Recording pack reference (anonymous QL pack at /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/IncompleteHostnameRegExp.ql) at /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp.
+[2024-03-25 16:40:10] Plumbing command codeql resolve queries completed:
+                      [
+                        "/home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp"
+                      ]
+[2024-03-25 16:40:10] Calling plumbing command: codeql resolve extensions-by-pack --qlconfig-file=/home/ec2-user/Desktop/thesis/copilot_eval/qlconfig.yml -- /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp
+[2024-03-25 16:40:11] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] <anonymous pack>: not 0.0.0 {root: <anonymous pack>@0.0.0}
+[2024-03-25 16:40:11] [SPAMMY] resolve extensions-by-pack> [DERIVATION] <anonymous pack>: 0.0.0 {<anonymous pack>: not 0.0.0 {root: <anonymous pack>@0.0.0}}
+[2024-03-25 16:40:11] [SPAMMY] resolve extensions-by-pack> [DECISION 1] <anonymous pack>: 0.0.0
+[2024-03-25 16:40:11] Plumbing command codeql resolve extensions-by-pack completed:
+                      {
+                        "models" : [ ],
+                        "data" : { },
+                        "threatModels" : { },
+                        "extensionPacks" : [ ]
+                      }
+[2024-03-25 16:40:11] Plumbing command codeql resolve extensions completed:
+                      {
+                        "models" : [ ],
+                        "data" : { },
+                        "threatModels" : { },
+                        "extensionPacks" : [ ]
+                      }
+[2024-03-25 16:40:11] Calling plumbing command: codeql resolve library-path --qlconfig-file=/home/ec2-user/Desktop/thesis/copilot_eval/qlconfig.yml --query=/home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/IncompleteHostnameRegExp.ql --format=json
+[2024-03-25 16:40:11] [DETAILS] resolve library-path> Resolving query at normalized path /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/IncompleteHostnameRegExp.ql.
+[2024-03-25 16:40:11] [DETAILS] resolve library-path> Found no pack; trying after symlink resolution with /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/IncompleteHostnameRegExp.ql.
+[2024-03-25 16:40:11] [DETAILS] resolve library-path> Found enclosing pack 'codeql-eg-IncompleteHostnameRegExp' at /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp.
+[2024-03-25 16:40:11] [DETAILS] resolve library-path> Adding compilation cache at /home/ec2-user/.codeql/compile-cache.
+[2024-03-25 16:40:11] [DETAILS] resolve library-path> Resolving library dependencies from /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/IncompleteHostnameRegExp.ql.
+[2024-03-25 16:40:11] [SPAMMY] resolve library-path> [INCOMPATIBILITY] <anonymous pack>: not 0.0.0 {root: <anonymous pack>@0.0.0}
+[2024-03-25 16:40:11] [SPAMMY] resolve library-path> [DERIVATION] <anonymous pack>: 0.0.0 {<anonymous pack>: not 0.0.0 {root: <anonymous pack>@0.0.0}}
+[2024-03-25 16:40:11] [SPAMMY] resolve library-path> [DECISION 1] <anonymous pack>: 0.0.0
+[2024-03-25 16:40:11] [DETAILS] resolve library-path> QL pack dependencies for /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp resolved OK.
+[2024-03-25 16:40:11] [DETAILS] resolve library-path> Found no dbscheme through dependencies.
+[2024-03-25 16:40:11] Plumbing command codeql resolve library-path completed:
+                      {
+                        "libraryPath" : [
+                          "/home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp"
+                        ],
+                        "compilationCache" : [
+                          "/home/ec2-user/.codeql/compile-cache"
+                        ],
+                        "relativeName" : "codeql-eg-IncompleteHostnameRegExp/IncompleteHostnameRegExp.ql",
+                        "possibleAdvice" : "There should probably be a qlpack.yml file declaring dependencies in /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp or an enclosing directory.",
+                        "qlPackName" : "codeql-eg-IncompleteHostnameRegExp"
+                      }
+[2024-03-25 16:40:11] [PROGRESS] execute queries> Compiling query plan for /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/IncompleteHostnameRegExp.ql.
+[2024-03-25 16:40:11] [DETAILS] execute queries> Resolving imports for /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/IncompleteHostnameRegExp.ql.
+[2024-03-25 16:40:11] Resolved file set for /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/IncompleteHostnameRegExp.ql hashes to bb24ab3c07c3f0c41e5ac5634a68d8d2d55ea6ee.
+[2024-03-25 16:40:11] [DETAILS] execute queries> Checking QL for /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/IncompleteHostnameRegExp.ql.
+[2024-03-25 16:40:11] ExternalModuleBindingPass ...
+[2024-03-25 16:40:11] ExternalModuleBindingPass time: 00:00.001
+[2024-03-25 16:40:11] CollectInstantiationsPass ...
+[2024-03-25 16:40:11] CollectInstantiationsPass time: 00:00.005
+[2024-03-25 16:40:11] Ql checks ...
+[2024-03-25 16:40:11] Ql checks time: 00:00.048
+[2024-03-25 16:40:11] [ERROR] execute queries> ERROR: Could not resolve module semmle.python.security.regexp.HostnameRegex. There should probably be a qlpack.yml file declaring dependencies in /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp or an enclosing directory. (/home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/IncompleteHostnameRegExp.ql:14,16-59)
+[2024-03-25 16:40:11] [ERROR] execute queries> ERROR: Could not resolve module HostnameRegex. There should probably be a qlpack.yml file declaring dependencies in /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp or an enclosing directory. (/home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/IncompleteHostnameRegExp.ql:16,28-41)
+[2024-03-25 16:40:11] [ERROR] execute queries> ERROR: Query module does not have any queries in scope. (/home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/IncompleteHostnameRegExp.ql:1,1-1)
+[2024-03-25 16:40:11] Sequence stamp origin is -6203544200393785489
+[2024-03-25 16:40:11] Pausing evaluation to close the cache at sequence stamp o+0
+[2024-03-25 16:40:11] The disk cache is freshly trimmed; leave it be.
+[2024-03-25 16:40:11] Unpausing evaluation
+[2024-03-25 16:40:11] This NaiveBuddyAllocator requested 0 eviction rounds.
+[2024-03-25 16:40:11] Exiting with code 2

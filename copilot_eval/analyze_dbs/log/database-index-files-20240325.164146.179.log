@@ -1,0 +1,10 @@
+[2024-03-25 16:41:46] This is codeql database index-files --include-extension=.yaml --include-extension=.yml --size-limit=5m --language yaml -- /home/ec2-user/Desktop/thesis/copilot_eval/analyze_dbs
+[2024-03-25 16:41:46] Log file was started late.
+[2024-03-25 16:41:46] Using index-files script /home/ec2-user/Desktop/thesis/codeql/yaml/tools/index-files.sh.
+[2024-03-25 16:41:46] [PROGRESS] database index-files> Scanning for files in /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/gen_scenario...
+[2024-03-25 16:41:46] Calling plumbing command: codeql resolve files --include-extension=.yaml --include-extension=.yml --size-limit=5m /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/gen_scenario --format=json
+[2024-03-25 16:41:46] [PROGRESS] resolve files> Scanning /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/gen_scenario...
+[2024-03-25 16:41:46] Plumbing command codeql resolve files completed:
+                      [ ]
+[2024-03-25 16:41:46] [DETAILS] database index-files> Found 0 files.
+[2024-03-25 16:41:46] Terminating normally.

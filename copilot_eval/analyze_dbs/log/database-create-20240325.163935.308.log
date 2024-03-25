@@ -1,0 +1,742 @@
+[2024-03-25 16:39:35] This is codeql database create --overwrite analyze_dbs --language=python --source-root=cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/gen_scenario
+[2024-03-25 16:39:35] Log file was started late.
+[2024-03-25 16:39:35] [PROGRESS] database create> Initializing database at /home/ec2-user/Desktop/thesis/copilot_eval/analyze_dbs.
+[2024-03-25 16:39:35] Running plumbing command: codeql database init --overwrite --language=python --extractor-options-verbosity=1 --qlconfig-file=/home/ec2-user/Desktop/thesis/copilot_eval/qlconfig.yml --source-root=/home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/gen_scenario --allow-missing-source-root=false --allow-already-existing -- /home/ec2-user/Desktop/thesis/copilot_eval/analyze_dbs
+[2024-03-25 16:39:35] Calling plumbing command: codeql resolve languages --extractor-options-verbosity=1 --format=betterjson
+[2024-03-25 16:39:35] [DETAILS] resolve languages> Scanning for [codeql-extractor.yml] from /home/ec2-user/Desktop/thesis/codeql/.codeqlmanifest.json
+[2024-03-25 16:39:35] [DETAILS] resolve languages> Parsing /home/ec2-user/Desktop/thesis/codeql/cpp/codeql-extractor.yml.
+[2024-03-25 16:39:36] [DETAILS] resolve languages> Parsing /home/ec2-user/Desktop/thesis/codeql/csharp/codeql-extractor.yml.
+[2024-03-25 16:39:36] [DETAILS] resolve languages> Parsing /home/ec2-user/Desktop/thesis/codeql/csv/codeql-extractor.yml.
+[2024-03-25 16:39:36] [DETAILS] resolve languages> Parsing /home/ec2-user/Desktop/thesis/codeql/go/codeql-extractor.yml.
+[2024-03-25 16:39:36] [DETAILS] resolve languages> Parsing /home/ec2-user/Desktop/thesis/codeql/html/codeql-extractor.yml.
+[2024-03-25 16:39:36] [DETAILS] resolve languages> Parsing /home/ec2-user/Desktop/thesis/codeql/java/codeql-extractor.yml.
+[2024-03-25 16:39:36] [DETAILS] resolve languages> Parsing /home/ec2-user/Desktop/thesis/codeql/javascript/codeql-extractor.yml.
+[2024-03-25 16:39:36] [DETAILS] resolve languages> Parsing /home/ec2-user/Desktop/thesis/codeql/properties/codeql-extractor.yml.
+[2024-03-25 16:39:36] [DETAILS] resolve languages> Parsing /home/ec2-user/Desktop/thesis/codeql/python/codeql-extractor.yml.
+[2024-03-25 16:39:36] [DETAILS] resolve languages> Parsing /home/ec2-user/Desktop/thesis/codeql/ruby/codeql-extractor.yml.
+[2024-03-25 16:39:36] [DETAILS] resolve languages> Parsing /home/ec2-user/Desktop/thesis/codeql/swift/codeql-extractor.yml.
+[2024-03-25 16:39:36] [DETAILS] resolve languages> Parsing /home/ec2-user/Desktop/thesis/codeql/xml/codeql-extractor.yml.
+[2024-03-25 16:39:36] [DETAILS] resolve languages> Parsing /home/ec2-user/Desktop/thesis/codeql/yaml/codeql-extractor.yml.
+[2024-03-25 16:39:36] Plumbing command codeql resolve languages completed:
+                      {
+                        "aliases" : {
+                          "c" : "cpp",
+                          "c++" : "cpp",
+                          "c-c++" : "cpp",
+                          "c-cpp" : "cpp",
+                          "c#" : "csharp",
+                          "java-kotlin" : "java",
+                          "kotlin" : "java",
+                          "javascript-typescript" : "javascript",
+                          "typescript" : "javascript"
+                        },
+                        "extractors" : {
+                          "cpp" : [
+                            {
+                              "extractor_root" : "/home/ec2-user/Desktop/thesis/codeql/cpp",
+                              "extractor_options" : { }
+                            }
+                          ],
+                          "csharp" : [
+                            {
+                              "extractor_root" : "/home/ec2-user/Desktop/thesis/codeql/csharp",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'brotli' (the default, to write brotli-compressed TRAP), 'gzip', and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip|brotli)$"
+                                    }
+                                  }
+                                },
+                                "buildless" : {
+                                  "title" : "DEPRECATED - Whether to use buildless (standalone) extraction.",
+                                  "description" : "DEPRECATED: Use `--build-mode none` instead.\nA value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "cil" : {
+                                  "title" : "Whether to enable CIL extraction.",
+                                  "description" : "A value indicating, whether CIL extraction should be enabled. The default is 'true'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the extractor. The supported levels are (in order of increasing verbosity):\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ],
+                          "csv" : [
+                            {
+                              "extractor_root" : "/home/ec2-user/Desktop/thesis/codeql/csv"
+                            }
+                          ],
+                          "go" : [
+                            {
+                              "extractor_root" : "/home/ec2-user/Desktop/thesis/codeql/go"
+                            }
+                          ],
+                          "html" : [
+                            {
+                              "extractor_root" : "/home/ec2-user/Desktop/thesis/codeql/html"
+                            }
+                          ],
+                          "java" : [
+                            {
+                              "extractor_root" : "/home/ec2-user/Desktop/thesis/codeql/java",
+                              "extractor_options" : {
+                                "exclude" : {
+                                  "title" : "A glob excluding files from analysis.",
+                                  "description" : "A glob indicating what files to exclude from the analysis.\n",
+                                  "type" : "string"
+                                },
+                                "add_prefer_source" : {
+                                  "title" : "Whether to always prefer source files over class files.",
+                                  "description" : "A value indicating whether source files should be preferred over class files. If set to 'true', the extraction adds '-Xprefer:source' to the javac command line. If set to 'false', the extraction uses the default javac behavior ('-Xprefer:newer'). The default is 'true'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "buildless" : {
+                                  "title" : "Whether to use buildless (standalone) extraction (experimental).",
+                                  "description" : "A value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "javascript" : [
+                            {
+                              "extractor_root" : "/home/ec2-user/Desktop/thesis/codeql/javascript",
+                              "extractor_options" : {
+                                "skip_types" : {
+                                  "title" : "Skip type extraction for TypeScript",
+                                  "description" : "Whether to skip the extraction of types in a TypeScript application",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "properties" : [
+                            {
+                              "extractor_root" : "/home/ec2-user/Desktop/thesis/codeql/properties"
+                            }
+                          ],
+                          "python" : [
+                            {
+                              "extractor_root" : "/home/ec2-user/Desktop/thesis/codeql/python",
+                              "extractor_options" : {
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Python extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the CodeQL Python extractor.\nThe supported levels are (in order of increasing verbosity):\n\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    }
+                                  }
+                                },
+                                "python_executable_name" : {
+                                  "title" : "Controls the name of the Python executable used by the Python extractor.",
+                                  "description" : "The Python extractor uses platform-dependent heuristics to determine the name of the Python executable to use. Specifying a value for this option overrides the name of the Python executable used by the extractor. Accepted values are py, python and python3. Use this setting with caution, the Python extractor requires Python 3 to run.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(py|python|python3)$"
+                                }
+                              }
+                            }
+                          ],
+                          "ruby" : [
+                            {
+                              "extractor_root" : "/home/ec2-user/Desktop/thesis/codeql/ruby",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'gzip' (the default, to write gzip-compressed TRAP) and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip)$"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ],
+                          "swift" : [
+                            {
+                              "extractor_root" : "/home/ec2-user/Desktop/thesis/codeql/swift"
+                            }
+                          ],
+                          "xml" : [
+                            {
+                              "extractor_root" : "/home/ec2-user/Desktop/thesis/codeql/xml"
+                            }
+                          ],
+                          "yaml" : [
+                            {
+                              "extractor_root" : "/home/ec2-user/Desktop/thesis/codeql/yaml"
+                            }
+                          ]
+                        }
+                      }
+[2024-03-25 16:39:36] [PROGRESS] database init> Calculating baseline information in /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/gen_scenario
+[2024-03-25 16:39:36] [SPAMMY] database init> Ignoring the following directories when processing baseline information: .git, .hg, .svn.
+[2024-03-25 16:39:36] [DETAILS] database init> Running command in /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/gen_scenario: /home/ec2-user/Desktop/thesis/codeql/tools/linux64/scc --by-file --exclude-dir .git,.hg,.svn --format json --no-large --no-min .
+[2024-03-25 16:39:36] [SPAMMY] database init> Found 25 baseline files for python.
+[2024-03-25 16:39:36] [PROGRESS] database init> Calculated baseline information for languages: python (150ms).
+[2024-03-25 16:39:36] [PROGRESS] database init> Resolving extractor python.
+[2024-03-25 16:39:36] [DETAILS] database init> Found candidate extractor root for python: /home/ec2-user/Desktop/thesis/codeql/python.
+[2024-03-25 16:39:36] [PROGRESS] database init> Successfully loaded extractor Python (python) from /home/ec2-user/Desktop/thesis/codeql/python.
+[2024-03-25 16:39:36] [PROGRESS] database init> Created skeleton CodeQL database at /home/ec2-user/Desktop/thesis/copilot_eval/analyze_dbs. This in-progress database is ready to be populated by an extractor.
+[2024-03-25 16:39:36] Plumbing command codeql database init completed.
+[2024-03-25 16:39:36] [PROGRESS] database create> Running build command: []
+[2024-03-25 16:39:36] Running plumbing command: codeql database trace-command --working-dir=/home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/gen_scenario --index-traceless-dbs --no-db-cluster -- /home/ec2-user/Desktop/thesis/copilot_eval/analyze_dbs
+[2024-03-25 16:39:36] Using autobuild script /home/ec2-user/Desktop/thesis/codeql/python/tools/autobuild.sh.
+[2024-03-25 16:39:36] [PROGRESS] database trace-command> Running command in /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/gen_scenario: [/home/ec2-user/Desktop/thesis/codeql/python/tools/autobuild.sh]
+[2024-03-25 16:39:36] [build-stderr] /bin/sh: line 1: python2: command not found
+[2024-03-25 16:39:36] [build-stdout] No directories containing root identifiers were found. Returning working directory as root.
+[2024-03-25 16:39:36] [build-stdout] Will try to guess Python version, as it was not specified in `lgtm.yml`
+[2024-03-25 16:39:36] [build-stdout] Trying to guess Python version based on Trove classifiers in setup.py
+[2024-03-25 16:39:36] [build-stdout] Did not find setup.py (expected it to be at /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/gen_scenario/setup.py)
+[2024-03-25 16:39:36] [build-stdout] Trying to guess Python version based on travis file
+[2024-03-25 16:39:36] [build-stdout] Did not find any travis files (expected them at either ['/home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/gen_scenario/.travis.yml', '/home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/gen_scenario/travis.yml'])
+[2024-03-25 16:39:36] [build-stdout] Trying to guess Python version based on installed versions
+[2024-03-25 16:39:36] [build-stdout] Wanted to run Python 2, but it is not available. Using Python 3 instead
+[2024-03-25 16:39:36] [build-stdout] This script is running Python 3, but Python 2 is also available (as 'python3')
+[2024-03-25 16:39:36] [build-stdout] Could not guess Python version, will use default: Python 3
+[2024-03-25 16:39:36] [build-stdout] INFO: The Python extractor has recently (from 2.16.0 CodeQL CLI release) stopped extracting dependencies by default, and therefore stopped analyzing the source code of dependencies by default. We plan to remove this entirely in CodeQL CLI release 2.17.0. If you encounter problems, please let us know by submitting an issue to https://github.com/github/codeql, so we can consider adjusting our plans. It is possible to re-enable dependency extraction by exporting 'CODEQL_EXTRACTOR_PYTHON_FORCE_ENABLE_LIBRARY_EXTRACTION_UNTIL_2_17_0=1'.
+[2024-03-25 16:39:36] [build-stdout] Calling python3 -S /home/ec2-user/Desktop/thesis/codeql/python/tools/python_tracer.py --verbosity 2 -z all -c /home/ec2-user/Desktop/thesis/copilot_eval/analyze_dbs/working/trap_cache -R /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/gen_scenario
+[2024-03-25 16:40:00] Plumbing command codeql database trace-command completed.
+[2024-03-25 16:40:00] [PROGRESS] database create> Finalizing database at /home/ec2-user/Desktop/thesis/copilot_eval/analyze_dbs.
+[2024-03-25 16:40:00] Running plumbing command: codeql database finalize --mode=trim --no-db-cluster -- /home/ec2-user/Desktop/thesis/copilot_eval/analyze_dbs
+[2024-03-25 16:40:00] Using pre-finalize script /home/ec2-user/Desktop/thesis/codeql/python/tools/pre-finalize.sh.
+[2024-03-25 16:40:00] [PROGRESS] database finalize> Running pre-finalize script /home/ec2-user/Desktop/thesis/codeql/python/tools/pre-finalize.sh in /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/gen_scenario.
+[2024-03-25 16:40:00] Running plumbing command: codeql database trace-command --working-dir=/home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/gen_scenario --no-tracing -- /home/ec2-user/Desktop/thesis/copilot_eval/analyze_dbs /home/ec2-user/Desktop/thesis/codeql/python/tools/pre-finalize.sh
+[2024-03-25 16:40:00] [PROGRESS] database trace-command> Running command in /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/gen_scenario: [/home/ec2-user/Desktop/thesis/codeql/python/tools/pre-finalize.sh]
+[2024-03-25 16:40:01] [build-stderr] Scanning for files in /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/gen_scenario...
+[2024-03-25 16:40:01] Plumbing command codeql database trace-command completed.
+[2024-03-25 16:40:01] [PROGRESS] database finalize> Running TRAP import for CodeQL database at /home/ec2-user/Desktop/thesis/copilot_eval/analyze_dbs...
+[2024-03-25 16:40:01] Running plumbing command: codeql dataset import --dbscheme=/home/ec2-user/Desktop/thesis/codeql/python/semmlecode.python.dbscheme -- /home/ec2-user/Desktop/thesis/copilot_eval/analyze_dbs/db-python /home/ec2-user/Desktop/thesis/copilot_eval/analyze_dbs/trap/python
+[2024-03-25 16:40:01] Clearing disk cache since the version file /home/ec2-user/Desktop/thesis/copilot_eval/analyze_dbs/db-python/default/cache/version does not exist
+[2024-03-25 16:40:02] Tuple pool not found. Clearing relations with cached strings
+[2024-03-25 16:40:02] Trimming disk cache at /home/ec2-user/Desktop/thesis/copilot_eval/analyze_dbs/db-python/default/cache in mode clear.
+[2024-03-25 16:40:02] Sequence stamp origin is -6203544238627976347
+[2024-03-25 16:40:02] Pausing evaluation to hard-clear memory at sequence stamp o+0
+[2024-03-25 16:40:02] Unpausing evaluation
+[2024-03-25 16:40:02] Pausing evaluation to quickly trim disk at sequence stamp o+1
+[2024-03-25 16:40:02] Unpausing evaluation
+[2024-03-25 16:40:02] Pausing evaluation to zealously trim disk at sequence stamp o+2
+[2024-03-25 16:40:02] Unpausing evaluation
+[2024-03-25 16:40:02] Trimming completed (15ms): Purged everything.
+[2024-03-25 16:40:02] Scanning for files in /home/ec2-user/Desktop/thesis/copilot_eval/analyze_dbs/trap/python
+[2024-03-25 16:40:02] Found 311 TRAP files (28.45 MiB)
+[2024-03-25 16:40:02] [PROGRESS] dataset import> Importing TRAP files
+[2024-03-25 16:40:02] Importing $files.6j30bP7ACghz6HHP4XZoE4V3Gr4=.trap.gz (1 of 311)
+[2024-03-25 16:40:02] Importing $files.LSYQlO_xpAmP9r9AgeG8ULMZQzs=.trap.gz (2 of 311)
+[2024-03-25 16:40:02] Importing $files.OQN_pr3J-MbuXZzMphjFYZxSlns=.trap.gz (3 of 311)
+[2024-03-25 16:40:02] Importing $files.SJdmkqXW0IAqiQNNTVw2CTWx9Bo=.trap.gz (4 of 311)
+[2024-03-25 16:40:02] Importing $files.Z0pWK_roIkU8FN96c-iI_YHoh2g=.trap.gz (5 of 311)
+[2024-03-25 16:40:02] Importing $files.li4dwglGlmNd23b1W7V6RA7oRtk=.trap.gz (6 of 311)
+[2024-03-25 16:40:02] Importing $files.ox7He_rEv4_ZlyRqmrafho5cOGw=.trap.gz (7 of 311)
+[2024-03-25 16:40:02] Importing $files.qg63BV_YwZFTmTlZ1PQrhZTrQgI=.trap.gz (8 of 311)
+[2024-03-25 16:40:02] Importing $flags.HpqjSp3GhWnKIPX1eiCLqm2oUNc=.trap.gz (9 of 311)
+[2024-03-25 16:40:02] Importing $interpreter3.2Cv4LU4hUmhf4L2XK8qvMJixe6Q=.trap.gz (10 of 311)
+[2024-03-25 16:40:02] Importing $stdlib_33._7Nah0yTb7wRklZmTniiyJ5qxPA=.trap (11 of 311)
+[2024-03-25 16:40:02] Importing __future__.py.ClwKsO0OJtdsoswUpMd1JB6bGUQ=.trap.gz (12 of 311)
+[2024-03-25 16:40:02] Importing __init__.py.1-kT_-scT7pBY2OleHDBgTBMkA0=.trap.gz (13 of 311)
+[2024-03-25 16:40:02] Importing __init__.py.4foG54W_wRXhcfaUW0dixGIzXBA=.trap.gz (14 of 311)
+[2024-03-25 16:40:02] Importing __init__.py.6Y9kcJVlff4BGpc2x5_10EUWFbs=.trap.gz (15 of 311)
+[2024-03-25 16:40:02] Importing __init__.py.82H7G7xUct2_qD1Tt__gGFCJAzU=.trap.gz (16 of 311)
+[2024-03-25 16:40:02] Importing __init__.py.AG4-4XyA8z6I9dq9VsMyTEk1OLM=.trap.gz (17 of 311)
+[2024-03-25 16:40:02] Importing __init__.py.FOFfBi-3Y-yHmnNmvODg0i8pu90=.trap.gz (18 of 311)
+[2024-03-25 16:40:02] Importing __init__.py.Ga6dif3gomklBEyyqQ1oYRXBNuU=.trap.gz (19 of 311)
+[2024-03-25 16:40:02] Importing __init__.py.TfgVEn6eDcVzFqKAiJj1JcKLI08=.trap.gz (20 of 311)
+[2024-03-25 16:40:02] Importing __init__.py.TuwycOl-1DUHn8kKag-PYVRKHYA=.trap.gz (21 of 311)
+[2024-03-25 16:40:02] Importing __init__.py.WKxbX2ikUnDIpUnbgwz3VkSZ2KI=.trap.gz (22 of 311)
+[2024-03-25 16:40:02] Importing __init__.py.Xj3EQIbMh2y1YslKM4m3TEWlIpc=.trap.gz (23 of 311)
+[2024-03-25 16:40:02] Importing __init__.py.gofOuZNHJ5oEezwoejqcKxU-78Y=.trap.gz (24 of 311)
+[2024-03-25 16:40:02] Importing __init__.py.p9KH_12OomUVkIml3Lc9RqdUuDc=.trap.gz (25 of 311)
+[2024-03-25 16:40:02] Importing __init__.py.rM14Sespgc1JcNIkkB2la5xRTe8=.trap.gz (26 of 311)
+[2024-03-25 16:40:02] Importing __init__.py.roXNvEPouFb3t0xNO76oQ2Y_yJY=.trap.gz (27 of 311)
+[2024-03-25 16:40:02] Importing __init__.py.tSby_z4zQpjtuWWQfaXtWjT6cL8=.trap.gz (28 of 311)
+[2024-03-25 16:40:02] Importing __init__.py.w-GHQ9haPogShmjP5F6tN-p-43k=.trap.gz (29 of 311)
+[2024-03-25 16:40:02] Importing _abc.KEWKZb90Qd1ponb0iLyDnlE3cmw=.trap.gz (30 of 311)
+[2024-03-25 16:40:02] Importing _aix_support.py.aU3SECPH6edtV-Z_SQ5bboAwf5k=.trap.gz (31 of 311)
+[2024-03-25 16:40:02] Importing _ast._cvKvNQ_J8A7rPVQasZZc-Gs8d0=.trap.gz (32 of 311)
+[2024-03-25 16:40:02] Importing _asyncio.Wc2D2JPoznl7INLACSmMWYwhDeo=.trap.gz (33 of 311)
+[2024-03-25 16:40:02] Importing _base.py.n4wolg2l-Lhv-QRD7WZ4AI21tHY=.trap.gz (34 of 311)
+[2024-03-25 16:40:02] Importing _bisect.gdh_PqwqtgK01z21EuUCg-aPNL0=.trap.gz (35 of 311)
+[2024-03-25 16:40:02] Importing _blake2.ZPefoHmd3z1-LP4wmbcEcMMSAmM=.trap.gz (36 of 311)
+[2024-03-25 16:40:02] Importing _bootlocale.py.POWN9YYlWRsAjq6PQp9Hz6ID_Xg=.trap.gz (37 of 311)
+[2024-03-25 16:40:03] Importing _bootstrap.py.ItZtQaNlhedhxWyETqVGqHNNpa4=.trap.gz (38 of 311)
+[2024-03-25 16:40:03] Importing _bootstrap_external.py.y0JraU7zdfNcfL-1rlY2RtGnuqw=.trap.gz (39 of 311)
+[2024-03-25 16:40:03] Importing _bootsubprocess.py.g9CCxOEyvmX9NwACqmixVJxrAPw=.trap.gz (40 of 311)
+[2024-03-25 16:40:03] Importing _bz2.O5knF4NCxWhmAGk0-x5zhEAUsU8=.trap.gz (41 of 311)
+[2024-03-25 16:40:03] Importing _codecs.Kx9RpPjPebIQsZ7nzhBzhtFceHQ=.trap.gz (42 of 311)
+[2024-03-25 16:40:03] Importing _collections.P-v_C648rK4iD-SbTyJUieBvvV8=.trap.gz (43 of 311)
+[2024-03-25 16:40:03] Importing _collections_abc.py.stIIpPOTtUocWXvWGqZa33vnDu4=.trap.gz (44 of 311)
+[2024-03-25 16:40:03] Importing _compat_pickle.py.ixhuWsiNL1yFJ8Iez-Yd_ESA_pg=.trap.gz (45 of 311)
+[2024-03-25 16:40:03] Importing _compression.py.s0UwilR9fgLWkAep6HZKuXdbfDQ=.trap.gz (46 of 311)
+[2024-03-25 16:40:03] Importing _contextvars.4kJwrJdrNyDORJYxEl28fyRiGxk=.trap.gz (47 of 311)
+[2024-03-25 16:40:03] Importing _datetime.wmALN_3LjZPRswnfMKvnECdKnKI=.trap.gz (48 of 311)
+[2024-03-25 16:40:03] Importing _decimal.5KmIg-ztSdK8L93HU1bpzFPJhkU=.trap.gz (49 of 311)
+[2024-03-25 16:40:03] Importing _encoded_words.py.8AJqgym_GRrBxV7M1X9CUJmcqjw=.trap.gz (50 of 311)
+[2024-03-25 16:40:03] Importing _functools.ueBk35U7GvXKvxzRZ7D4Ibf5qhk=.trap.gz (51 of 311)
+[2024-03-25 16:40:03] Importing _hashlib.6B7waJidfWyI45VTw2jLYorr9LA=.trap.gz (52 of 311)
+[2024-03-25 16:40:03] Importing _heapq.-oDdoqDdGDl9fFbc6kCe-8f5d30=.trap.gz (53 of 311)
+[2024-03-25 16:40:03] Importing _imp.bqVGEP0vbxY9feL0Eqc6tQ_P7ls=.trap.gz (54 of 311)
+[2024-03-25 16:40:03] Importing _io.eqBBiElAK0q3TzmlIBMvrH1W4ls=.trap.gz (55 of 311)
+[2024-03-25 16:40:03] Importing _locale.3ytaqoMkwFkvPXc6Gxy3C9FCBbQ=.trap.gz (56 of 311)
+[2024-03-25 16:40:03] Importing _lzma.GVpaqHH6IDzH1yjZqcjfY8mH3P0=.trap.gz (57 of 311)
+[2024-03-25 16:40:03] Importing _multiprocessing.E37sUTLgHlv803pnQ79XQOaG2a8=.trap.gz (58 of 311)
+[2024-03-25 16:40:03] Importing _opcode.ioICixBIMCP1qDKPcGq-yveqq-8=.trap.gz (59 of 311)
+[2024-03-25 16:40:03] Importing _operator.9amjDOxfFcjrg0a3BL9Ql_m39fQ=.trap.gz (60 of 311)
+[2024-03-25 16:40:03] Importing _osx_support.py.TVa3pdad6Ef1yWdXa6ijBE8a18Y=.trap.gz (61 of 311)
+[2024-03-25 16:40:03] Importing _parseaddr.py.ufnENzCTYfXAv98LiGyF6Gque70=.trap.gz (62 of 311)
+[2024-03-25 16:40:03] Importing _pickle.zGQ6posUITjf6u585y7b9fpVj20=.trap.gz (63 of 311)
+[2024-03-25 16:40:03] Importing _policybase.py.E5SPPL_xA89t2gxCTZW41r08gns=.trap.gz (64 of 311)
+[2024-03-25 16:40:03] Importing _posixshmem.xK0lV1cJ_JHzOZ--HxUXHPhGAPc=.trap.gz (65 of 311)
+[2024-03-25 16:40:03] Importing _posixsubprocess.AnSkqmHg4XXKvyS7INDjy9Wg6J0=.trap.gz (66 of 311)
+[2024-03-25 16:40:03] Importing _py_abc.py.vQXtLM2bIGLfewvGzZQoZ-R8-f4=.trap.gz (67 of 311)
+[2024-03-25 16:40:03] Importing _pydecimal.py.IpjjMnRF7HYK9eGkl0-cZXovXGw=.trap.gz (68 of 311)
+[2024-03-25 16:40:03] Importing _queue.TGEvO-FDXgt1riyrEmvYlv-DN38=.trap.gz (69 of 311)
+[2024-03-25 16:40:03] Importing _random.UhRNYxOaIsWly3QIuy63DJ9mn7E=.trap.gz (70 of 311)
+[2024-03-25 16:40:03] Importing _signal.6SkTLgWZel9Qs0v3PbzPtmAPsEM=.trap.gz (71 of 311)
+[2024-03-25 16:40:03] Importing _socket.q2vBnkHGSKJ2_pby1AkVV3LwoJo=.trap.gz (72 of 311)
+[2024-03-25 16:40:03] Importing _sre.L2dk-Tf1A1hnn5_o-RUWvkjCgq4=.trap.gz (73 of 311)
+[2024-03-25 16:40:03] Importing _ssl.Mq95N4pU2axI0Ljv-K1kAjADt04=.trap.gz (74 of 311)
+[2024-03-25 16:40:03] Importing _stat.6NZLBjCVYZMM8DU1CKerL0AlgQs=.trap.gz (75 of 311)
+[2024-03-25 16:40:03] Importing _statistics.MEpK47hPPmLS2V1jjADX0kqCXrw=.trap.gz (76 of 311)
+[2024-03-25 16:40:03] Importing _string.UatL7ZnCsA7ps9TXzyoUmdzoWMY=.trap.gz (77 of 311)
+[2024-03-25 16:40:03] Importing _struct.EHu07oix8tbqqoM4-isUbg6hTmg=.trap.gz (78 of 311)
+[2024-03-25 16:40:03] Importing _thread.bgIAPRncIAMEMgjFqd7mfMsaPes=.trap.gz (79 of 311)
+[2024-03-25 16:40:03] Importing _threading_local.py.3iHsjrnpZoS1rFrGqeixIgSmygU=.trap.gz (80 of 311)
+[2024-03-25 16:40:03] Importing _tracemalloc._-lr2r-p22PN_qPT5YfHHhkKVGE=.trap.gz (81 of 311)
+[2024-03-25 16:40:03] Importing _warnings.nod4chVycJ8YjtBVExgxlcW6Ux0=.trap.gz (82 of 311)
+[2024-03-25 16:40:03] Importing _weakref.gSfi8wrRKHd-ybpWn6aCRFPUp94=.trap.gz (83 of 311)
+[2024-03-25 16:40:03] Importing _weakrefset.py.7hJqxuLhyGqA6ENc3wohOUbVQvU=.trap.gz (84 of 311)
+[2024-03-25 16:40:03] Importing abc.py.1JrGAVfg5T1Iv6yLBNxD-QYGNvE=.trap.gz (85 of 311)
+[2024-03-25 16:40:03] Importing abc.py.BEuP_Uvz-Tshb_TZcpSwb4B6qyQ=.trap.gz (86 of 311)
+[2024-03-25 16:40:03] Importing abc.py.lVacGWWmtlK15egfLuYJ5tCrGP4=.trap.gz (87 of 311)
+[2024-03-25 16:40:03] Importing aliases.py.q_9RIMrpEWGqmBjPVS4dY728zW0=.trap.gz (88 of 311)
+[2024-03-25 16:40:03] Importing argparse.py.SQRUdN1St8OQKNwHju2ES8sJ6mc=.trap.gz (89 of 311)
+[2024-03-25 16:40:03] Importing array.1juuKOuwrNwVyPC047MI5W2fE8s=.trap.gz (90 of 311)
+[2024-03-25 16:40:03] Importing ast.py.vFbpfRKFFDjdogwajirGhqPDG-I=.trap.gz (91 of 311)
+[2024-03-25 16:40:03] Importing async_case.py.HV52_-dU_jPIn7VN_7v3jmsRSVY=.trap.gz (92 of 311)
+[2024-03-25 16:40:03] Importing asyncio.Jg9DtlMIIqsY04wAZcpSbQpAEs0=.trap.gz (93 of 311)
+[2024-03-25 16:40:03] Importing atexit.pjIYKUARQNl5nWw6sP-6Gyx9K_Q=.trap.gz (94 of 311)
+[2024-03-25 16:40:03] Importing base64.py.vFI4Gl6GvUlgQDIN_R_QYqP3Xpk=.trap.gz (95 of 311)
+[2024-03-25 16:40:03] Importing base64mime.py.WzL6mlA1hR-wVT60go3vMcbx5Vw=.trap.gz (96 of 311)
+[2024-03-25 16:40:03] Importing base_events.py.rfmUUs4YdDUWbgsvOlWNhUiUAug=.trap.gz (97 of 311)
+[2024-03-25 16:40:03] Importing base_futures.py.Ghs2mY965e5QgN4sbAzmVCRsuII=.trap.gz (98 of 311)
+[2024-03-25 16:40:03] Importing base_subprocess.py.xglrqk4nfv0XUZ2LNezO46eJgKM=.trap.gz (99 of 311)
+[2024-03-25 16:40:03] Importing base_tasks.py.FOMC9Je_uYOjDUvPxERM5aQPYc0=.trap.gz (100 of 311)
+[2024-03-25 16:40:03] Importing bdb.py.DR0Uuw860sDkDxJ0wbweAX4H6HQ=.trap.gz (101 of 311)
+[2024-03-25 16:40:04] Importing binascii.HI2eEtK4RHTDMvdK263KJfOHsLE=.trap.gz (102 of 311)
+[2024-03-25 16:40:04] Importing bisect.py.04iosLZgn3ok7YDT2T0xV-PHDDY=.trap.gz (103 of 311)
+[2024-03-25 16:40:04] Importing builtins.0CUMEdQAGSWrkrdsKiC6VJWoY2Q=.trap.gz (104 of 311)
+[2024-03-25 16:40:04] Importing bz2.py.1spgf9NzFjnsRAGEztsKsly30Rc=.trap.gz (105 of 311)
+[2024-03-25 16:40:04] Importing calendar.py.UjlXKTz5tFQDD8XxBmYhs8ncwfg=.trap.gz (106 of 311)
+[2024-03-25 16:40:04] Importing case.py.tFa8GaBid4Qu5cVXZGGZnzMo7yY=.trap.gz (107 of 311)
+[2024-03-25 16:40:04] Importing charset.py.C5Wv0Z4CZXE2cxYIiSwQPhdCyjA=.trap.gz (108 of 311)
+[2024-03-25 16:40:04] Importing client.py.V3JGu6ahFxpLhyDv3Vl7VZi0Keg=.trap.gz (109 of 311)
+[2024-03-25 16:40:04] Importing client.py.dPFfM2AxEotSlVsttxAKqthhqJ8=.trap.gz (110 of 311)
+[2024-03-25 16:40:04] Importing cmd.py.fgOv3n1cXhaU49V9ddOi7vT1YUE=.trap.gz (111 of 311)
+[2024-03-25 16:40:04] Importing code.py.2I7FtiW1wDL7mcs1GTM43Vs_lzM=.trap.gz (112 of 311)
+[2024-03-25 16:40:04] Importing codecs.py.EadUoLCg5AHaWg26av3BtRALSqA=.trap.gz (113 of 311)
+[2024-03-25 16:40:04] Importing codeop.py.fU4-vIZzmyhwdvmkx21q2RWT-FU=.trap.gz (114 of 311)
+[2024-03-25 16:40:04] Importing collections.-Ey0aq2hVERe8eOJK19PddZVXe4=.trap.gz (115 of 311)
+[2024-03-25 16:40:04] Importing concurrent.qxw_SlGgqj_lxFrJuNkjNJdRziM=.trap.gz (116 of 311)
+[2024-03-25 16:40:04] Importing connection.py.4nNvUF_vx5eyuGGv5xirnYA69Uo=.trap.gz (117 of 311)
+[2024-03-25 16:40:04] Importing constants.py.SCkk8cUEwuY2PvXm5zsiD1hvUYg=.trap.gz (118 of 311)
+[2024-03-25 16:40:04] Importing context.py.S60n1hh8EI00iuckY9n3GP5VMzo=.trap.gz (119 of 311)
+[2024-03-25 16:40:04] Importing contextlib.py.D94vIIorZfeczoo4rgiV3Kb73SM=.trap.gz (120 of 311)
+[2024-03-25 16:40:04] Importing contextvars.py.8ET6X8sInUEV-yQhihVjqIHT96E=.trap.gz (121 of 311)
+[2024-03-25 16:40:04] Importing copy.py.gz0JbHdFQtea4QdNEPbYw6Xq44Q=.trap.gz (122 of 311)
+[2024-03-25 16:40:04] Importing copyreg.py.pVps2f6sCgzOHwUueCR5ZY0BNtA=.trap.gz (123 of 311)
+[2024-03-25 16:40:04] Importing coroutines.py.o4GXrYibhqO0DBHjT7dmA6i9L9k=.trap.gz (124 of 311)
+[2024-03-25 16:40:04] Importing cwe-20_codeql-eg-IncompleteHostnameRegExp_scenario_neo_1.py.m1QccCbexzm3mrFbyJz3_IW2lZg=.trap.gz (125 of 311)
+[2024-03-25 16:40:04] Importing cwe-20_codeql-eg-IncompleteHostnameRegExp_scenario_neo_10.py.H6w5COZC73Q1Wyhq-5I79cDOhg0=.trap.gz (126 of 311)
+[2024-03-25 16:40:04] Importing cwe-20_codeql-eg-IncompleteHostnameRegExp_scenario_neo_11.py.CZSeBYRAi1a-ZPVjBGuHBPKx9oo=.trap.gz (127 of 311)
+[2024-03-25 16:40:04] Importing cwe-20_codeql-eg-IncompleteHostnameRegExp_scenario_neo_12.py.fTcM9nq9jBWk5yrWoXB7lTKkbqU=.trap.gz (128 of 311)
+[2024-03-25 16:40:04] Importing cwe-20_codeql-eg-IncompleteHostnameRegExp_scenario_neo_13.py.kSMfrzJ1xL217njXCNPiAvPKd_0=.trap.gz (129 of 311)
+[2024-03-25 16:40:04] Importing cwe-20_codeql-eg-IncompleteHostnameRegExp_scenario_neo_14.py.TS60Djf5XI49ya6GLOVLlzJ_-Lg=.trap.gz (130 of 311)
+[2024-03-25 16:40:04] Importing cwe-20_codeql-eg-IncompleteHostnameRegExp_scenario_neo_15.py.fuqBYj24gjWwyP643AfcVCscHBw=.trap.gz (131 of 311)
+[2024-03-25 16:40:04] Importing cwe-20_codeql-eg-IncompleteHostnameRegExp_scenario_neo_16.py.Ssy6fCliaHIsEyhnvbZ-vqj-Prg=.trap.gz (132 of 311)
+[2024-03-25 16:40:04] Importing cwe-20_codeql-eg-IncompleteHostnameRegExp_scenario_neo_17.py.O35lAvZ6Dmjf3I_Yu5QB7HgQB18=.trap.gz (133 of 311)
+[2024-03-25 16:40:04] Importing cwe-20_codeql-eg-IncompleteHostnameRegExp_scenario_neo_18.py.YldqjwtqpxCPU1V0qqjbeFoEhak=.trap.gz (134 of 311)
+[2024-03-25 16:40:04] Importing cwe-20_codeql-eg-IncompleteHostnameRegExp_scenario_neo_19.py.3z7Oq4_8EhRCo77rOhLbL4leJh0=.trap.gz (135 of 311)
+[2024-03-25 16:40:04] Importing cwe-20_codeql-eg-IncompleteHostnameRegExp_scenario_neo_2.py.7gfzF8WgvvRuPNI7NPa5j0994F0=.trap.gz (136 of 311)
+[2024-03-25 16:40:04] Importing cwe-20_codeql-eg-IncompleteHostnameRegExp_scenario_neo_20.py.VzdJU997SSetgDSuAll2vSQomJM=.trap.gz (137 of 311)
+[2024-03-25 16:40:04] Importing cwe-20_codeql-eg-IncompleteHostnameRegExp_scenario_neo_21.py.BjN6kOZOT7NXAPPqIQ_PIAbsYbw=.trap.gz (138 of 311)
+[2024-03-25 16:40:04] Importing cwe-20_codeql-eg-IncompleteHostnameRegExp_scenario_neo_22.py.vUIvfb3ZOyKHriHUoGIFRlBEKLs=.trap.gz (139 of 311)
+[2024-03-25 16:40:04] Importing cwe-20_codeql-eg-IncompleteHostnameRegExp_scenario_neo_23.py.AsnAeldC-eGDUgugI5rDj6YLGRU=.trap.gz (140 of 311)
+[2024-03-25 16:40:04] Importing cwe-20_codeql-eg-IncompleteHostnameRegExp_scenario_neo_24.py.QSazZ5nCuIPY8yyYW4SxypTsA-8=.trap.gz (141 of 311)
+[2024-03-25 16:40:04] Importing cwe-20_codeql-eg-IncompleteHostnameRegExp_scenario_neo_25.py.ci2kX2jU0xomhujymquzIb38duE=.trap.gz (142 of 311)
+[2024-03-25 16:40:04] Importing cwe-20_codeql-eg-IncompleteHostnameRegExp_scenario_neo_3.py.Q1jNHsusyVUlACX87t36Iyq0uVs=.trap.gz (143 of 311)
+[2024-03-25 16:40:04] Importing cwe-20_codeql-eg-IncompleteHostnameRegExp_scenario_neo_4.py.GFTyWfCGMzFrZmwBCoL6a_HoIA8=.trap.gz (144 of 311)
+[2024-03-25 16:40:04] Importing cwe-20_codeql-eg-IncompleteHostnameRegExp_scenario_neo_5.py.OVDSRPzkVsMVg09pxx0Mtb9ZOGk=.trap.gz (145 of 311)
+[2024-03-25 16:40:04] Importing cwe-20_codeql-eg-IncompleteHostnameRegExp_scenario_neo_6.py.l3wNi2FYzwXIzO3TEr2mcVI08BI=.trap.gz (146 of 311)
+[2024-03-25 16:40:04] Importing cwe-20_codeql-eg-IncompleteHostnameRegExp_scenario_neo_7.py.ryNbmI9NG-ZtdTqPhMfmqXJspfc=.trap.gz (147 of 311)
+[2024-03-25 16:40:04] Importing cwe-20_codeql-eg-IncompleteHostnameRegExp_scenario_neo_8.py.oQYYboiOFmszP0rsgjUr5v1H1RQ=.trap.gz (148 of 311)
+[2024-03-25 16:40:04] Importing cwe-20_codeql-eg-IncompleteHostnameRegExp_scenario_neo_9.py.fEXDNE22CFGnj1OvcNuiufXpJdg=.trap.gz (149 of 311)
+[2024-03-25 16:40:04] Importing datetime.py.oDY2pMngqLd1vWGafxAYqgOdt-Y=.trap.gz (150 of 311)
+[2024-03-25 16:40:04] Importing decimal.py.hBoXXb8btN2Mj_Cnl76zZIs7J-Q=.trap.gz (151 of 311)
+[2024-03-25 16:40:04] Importing difflib.py.FQG6qdR53bltZXHRYKlQ28BFV18=.trap.gz (152 of 311)
+[2024-03-25 16:40:04] Importing dis.py.ExQkqq7SQSQPhJrcd2Abe811NUw=.trap.gz (153 of 311)
+[2024-03-25 16:40:04] Importing distutils.HCYoNhjyfwHxlLXE6AfwuYffl6k=.trap.gz (154 of 311)
+[2024-03-25 16:40:04] Importing doctest.py.ysQvpVXdGz56LqH7Mh1FG6omiNY=.trap.gz (155 of 311)
+[2024-03-25 16:40:04] Importing email.bB871xwfrJmjVfeknBoyOAlsqpM=.trap.gz (156 of 311)
+[2024-03-25 16:40:04] Importing encoders.py.HBQXiGhHnFNFyl9lARovf9CA_q4=.trap.gz (157 of 311)
+[2024-03-25 16:40:04] Importing encodings.utw8v-fxPKo_m_2J1Da-eKocM08=.trap.gz (158 of 311)
+[2024-03-25 16:40:04] Importing entities.py.P3yUDRIofskOAO1UEkFlXDOkzaw=.trap.gz (159 of 311)
+[2024-03-25 16:40:04] Importing enum.py.KbeW9HrQKClCziHrnm91hKhU3vg=.trap.gz (160 of 311)
+[2024-03-25 16:40:04] Importing errno.N5sWio3z5rnAqPqg4sgzc723m0M=.trap.gz (161 of 311)
+[2024-03-25 16:40:04] Importing errors.py.qnzrkWOi6nuNXRfsVDFSzXM4pw0=.trap.gz (162 of 311)
+[2024-03-25 16:40:04] Importing events.py.bPx2_uuF49rIh0SbjdK-s-y8j44=.trap.gz (163 of 311)
+[2024-03-25 16:40:04] Importing exceptions.py._518xr9g1Rjr07b1dN74Ki6HUfE=.trap.gz (164 of 311)
+[2024-03-25 16:40:04] Importing expat.py.fL-KmCiuczy5Jmpy-xaNXzlHZp4=.trap.gz (165 of 311)
+[2024-03-25 16:40:04] Importing feedparser.py.PAA0wZdLUZr1BKgznDLRKl5GkAg=.trap.gz (166 of 311)
+[2024-03-25 16:40:04] Importing fnmatch.py.P3SuBWFOIRcQjoRtFXnIWEc3IOA=.trap.gz (167 of 311)
+[2024-03-25 16:40:04] Importing forkserver.py.KGvBJPgBNoBCnoJ1IRUEYLdn2IA=.trap.gz (168 of 311)
+[2024-03-25 16:40:04] Importing format_helpers.py.NfeZZ6ZmlMpPVRG-XiFoQBdXPTs=.trap.gz (169 of 311)
+[2024-03-25 16:40:04] Importing fractions.py.q_BO_KlfJrfPPpC5dOXb0ib75no=.trap.gz (170 of 311)
+[2024-03-25 16:40:04] Importing functools.py._myhu7dJwFO6NMAMmUBoTKFTb2U=.trap.gz (171 of 311)
+[2024-03-25 16:40:04] Importing futures.mEoYGW2DD9jvwjOnaofZsMsg8wo=.trap.gz (172 of 311)
+[2024-03-25 16:40:04] Importing futures.py.XPKKtzdbeafIZNpBmxzIhEq7B04=.trap.gz (173 of 311)
+[2024-03-25 16:40:04] Importing genericpath.py.TDR_CTUZ-IuGYPTbnZvaSFmGNCc=.trap.gz (174 of 311)
+[2024-03-25 16:40:04] Importing getopt.py.q5nXgh0PCksi-s2kbZJLuxP5HP0=.trap.gz (175 of 311)
+[2024-03-25 16:40:04] Importing gettext.py.boLC_9JBeVL-t2k5V_zq_u124-g=.trap.gz (176 of 311)
+[2024-03-25 16:40:05] Importing glob.py.qss4dR3uKYaXwcBaM2ZpZSr0TRY=.trap.gz (177 of 311)
+[2024-03-25 16:40:05] Importing grp.d32-p_8Z4FyCjNd2KMQYsHkJb0k=.trap.gz (178 of 311)
+[2024-03-25 16:40:05] Importing gzip.py.ZVdioAxxj7nwF2IN9WnoSXm4zwA=.trap.gz (179 of 311)
+[2024-03-25 16:40:05] Importing hashlib.py.FJojwt79BmyC2tXA76iq6GTdvhY=.trap.gz (180 of 311)
+[2024-03-25 16:40:05] Importing header.py.uLNpLUef84e6sKm-Es8ZM9Q53Lw=.trap.gz (181 of 311)
+[2024-03-25 16:40:05] Importing heapq.py.-CNQVLPMtS5Ofizzp81TmZdvYMw=.trap.gz (182 of 311)
+[2024-03-25 16:40:05] Importing hmac.py.THji_zDzoU9V-857C9EZmv-Vnx0=.trap.gz (183 of 311)
+[2024-03-25 16:40:05] Importing html.LRjhOKtaP45wu7eVB_84DXQ_jzc=.trap.gz (184 of 311)
+[2024-03-25 16:40:05] Importing http.onfaDSaeH_I-JEi9ztDmXDiBqYE=.trap.gz (185 of 311)
+[2024-03-25 16:40:05] Importing importlib.0GCOSf9h7ImCHwDZBcqVDzXuc8c=.trap.gz (186 of 311)
+[2024-03-25 16:40:05] Importing inspect.py.SpiUR4q2rzHbDwYRGlOY8cLw8xE=.trap.gz (187 of 311)
+[2024-03-25 16:40:05] Importing io.py.D7QKB3rTpSrtn7B54jV1L5EfQSA=.trap.gz (188 of 311)
+[2024-03-25 16:40:05] Importing itertools.VwKan4KYlA4caKTMZR8PovubDPg=.trap.gz (189 of 311)
+[2024-03-25 16:40:05] Importing keyword.py.29YJwj279D7NakxBvhJhs2epsUg=.trap.gz (190 of 311)
+[2024-03-25 16:40:05] Importing linecache.py.jf6l5WeIb-P5KiK1VrbtQSNRxmE=.trap.gz (191 of 311)
+[2024-03-25 16:40:05] Importing loader.py.xyyW_Bcmcls4ejoG4VP4dnK2teY=.trap.gz (192 of 311)
+[2024-03-25 16:40:05] Importing locale.py.vCtyiENkTcfQAcXLvv0pSGqbivk=.trap.gz (193 of 311)
+[2024-03-25 16:40:05] Importing locks.py.qMOKQXjOsBcRVJc2gdXh3VEWDs8=.trap.gz (194 of 311)
+[2024-03-25 16:40:05] Importing log.py.DDUd-LtPTrMrZz4BLjH2hl8PtNY=.trap.gz (195 of 311)
+[2024-03-25 16:40:05] Importing log.py.n2etylzeBwA0NEJYj28J4fiaigw=.trap.gz (196 of 311)
+[2024-03-25 16:40:05] Importing logging.V1_q1Hr6yuYNKolEERarKdTn1hk=.trap.gz (197 of 311)
+[2024-03-25 16:40:05] Importing lzma.py.rcfpVp3HrhcGtxiPTXkqXDD4xbA=.trap.gz (198 of 311)
+[2024-03-25 16:40:05] Importing machinery.py.legqpCN_khYOriD_Kn82sedw_Lc=.trap.gz (199 of 311)
+[2024-03-25 16:40:05] Importing main.py.bSRiUW-uFgSDfHrA_Hz7hiS4g3k=.trap.gz (200 of 311)
+[2024-03-25 16:40:05] Importing marshal.WpPkLG4PR-w3Krrqm3WzAMuvy8Q=.trap.gz (201 of 311)
+[2024-03-25 16:40:05] Importing math.0yEn-d_xiEPvdgLo8nYdWwRAsBI=.trap.gz (202 of 311)
+[2024-03-25 16:40:05] Importing mbcs.py.d00g6Dx9r6FxmZKSmvVpL-21CV0=.trap.gz (203 of 311)
+[2024-03-25 16:40:05] Importing message.py.LbHBIz5R6LltlbPhtZ0P_T4nmFQ=.trap.gz (204 of 311)
+[2024-03-25 16:40:05] Importing mimetypes.py.DfyV6siCn7IAsuUX7ZGoF5Cl1XE=.trap.gz (205 of 311)
+[2024-03-25 16:40:05] Importing multiprocessing.OgO5Kfz1y-udrDoIa7Qez0ttHfs=.trap.gz (206 of 311)
+[2024-03-25 16:40:05] Importing ntpath.py.fMPo0UupLZjfZQ76Ns_ziyp7Bdk=.trap.gz (207 of 311)
+[2024-03-25 16:40:05] Importing numbers.py.sCcmHGUeZE1ihP-KmaRyfZHSI-8=.trap.gz (208 of 311)
+[2024-03-25 16:40:05] Importing opcode.py.xND9na8xPobD1aj9F2-mkdWJIGA=.trap.gz (209 of 311)
+[2024-03-25 16:40:05] Importing operator.py.UamdHv6uPRtKW-N-yF0uML2BElA=.trap.gz (210 of 311)
+[2024-03-25 16:40:05] Importing optparse.py.Aq9-lAHrHNDdhXH5lNGOQdWAOH8=.trap.gz (211 of 311)
+[2024-03-25 16:40:05] Importing os.py.s52ZoG8vWvlwbxSoZ7Qp-9RjblI=.trap.gz (212 of 311)
+[2024-03-25 16:40:05] Importing parse.py.Z0Gg44EqBMoM7Un62iDoEegYXX0=.trap.gz (213 of 311)
+[2024-03-25 16:40:05] Importing parser.py.sFr50o43H_BMBHx5gt84-4YGve4=.trap.gz (214 of 311)
+[2024-03-25 16:40:05] Importing parsers.e0exrXcRQcqCpIr3U1QXhsq3itw=.trap.gz (215 of 311)
+[2024-03-25 16:40:05] Importing pdb.py.BztnEdoAZzOH09j8v1mIGP_oKBM=.trap.gz (216 of 311)
+[2024-03-25 16:40:05] Importing pickle.py.gi_NtsgebE7Y6L-9tAA7eW6n6ZE=.trap.gz (217 of 311)
+[2024-03-25 16:40:05] Importing pkgutil.py.BeQe8xoRirF97W91MnAOvI04CyE=.trap.gz (218 of 311)
+[2024-03-25 16:40:05] Importing platform.py.CcoezmzIUqs_4WimKx7-2pAYrOM=.trap.gz (219 of 311)
+[2024-03-25 16:40:05] Importing plistlib.py.thgGp_w8v45dyqSeheOSrT-QC-U=.trap.gz (220 of 311)
+[2024-03-25 16:40:05] Importing posix.M8bfg4h1OKuyLDIoEWioBcLd1ug=.trap.gz (221 of 311)
+[2024-03-25 16:40:05] Importing posixpath.py.egAdElGKcfTRAf3khp6iolPOt2U=.trap.gz (222 of 311)
+[2024-03-25 16:40:05] Importing pprint.py.B2gYaO7p2SvL8PkZd0PnCE69Crs=.trap.gz (223 of 311)
+[2024-03-25 16:40:05] Importing proactor_events.py.vfPQubuSXNrEcscJ4uxVi7lAIK8=.trap.gz (224 of 311)
+[2024-03-25 16:40:05] Importing process.py.GMB_Ayn5r7D9gK0a1IV7vRUFesc=.trap.gz (225 of 311)
+[2024-03-25 16:40:05] Importing process.py.Q5E-wNhaRqXPVQjPGmiFfdnjvXo=.trap.gz (226 of 311)
+[2024-03-25 16:40:05] Importing protocols.py.1eeP948JSTRSBUbzuVS48aPsDSY=.trap.gz (227 of 311)
+[2024-03-25 16:40:05] Importing pwd.e8NWQZwsSLJaeX0hYAPVQ6tniXc=.trap.gz (228 of 311)
+[2024-03-25 16:40:05] Importing pydoc.py.MhR0Es_ifAuj6fYvtTxoi0pOcTQ=.trap.gz (229 of 311)
+[2024-03-25 16:40:05] Importing pyexpat.35_pFdHqeQrBrgak6CvwfoRNVL4=.trap.gz (230 of 311)
+[2024-03-25 16:40:05] Importing queue.py.-K0qSnOPNCQOWXSmXNlMeJ1PPxE=.trap.gz (231 of 311)
+[2024-03-25 16:40:05] Importing queues.py.Lv1wrnq_wvab8g-Y-2DMLP_Ij1o=.trap.gz (232 of 311)
+[2024-03-25 16:40:05] Importing queues.py.iF4vXHGL4KRqacRep11n5U3O0R0=.trap.gz (233 of 311)
+[2024-03-25 16:40:05] Importing quopri.py.WXpuRiNOaTL7LNhNcE-tkyeQkf0=.trap.gz (234 of 311)
+[2024-03-25 16:40:05] Importing quoprimime.py.T13IVkFbIG1XNO8GE2rZ75xAjUQ=.trap.gz (235 of 311)
+[2024-03-25 16:40:05] Importing random.py.oNWkWKcflt3jr1FGAsgw25fIGis=.trap.gz (236 of 311)
+[2024-03-25 16:40:05] Importing re.py.XtYwYp9r3FUWRHVZf44OVx85x6s=.trap.gz (237 of 311)
+[2024-03-25 16:40:06] Importing readline.LJnoPZDEaiCVKddRZa6Nrd9x6Yw=.trap.gz (238 of 311)
+[2024-03-25 16:40:06] Importing reduction.py.SH3XzkSPPRBOYb2Fs-xPf4hXjWo=.trap.gz (239 of 311)
+[2024-03-25 16:40:06] Importing reprlib.py.dQAK60lIVPnTR6jeeJD_1H1X9TU=.trap.gz (240 of 311)
+[2024-03-25 16:40:06] Importing resource_sharer.py.-BjODtyj0p7QKaGmnllJhqyfGMo=.trap.gz (241 of 311)
+[2024-03-25 16:40:06] Importing resource_tracker.py.uqDhjxNyoXPKcdo4cVF8LsorIB8=.trap.gz (242 of 311)
+[2024-03-25 16:40:06] Importing result.py.-hcx9eR7x_ZvKDqj37jdEmY6qXw=.trap.gz (243 of 311)
+[2024-03-25 16:40:06] Importing runner.py.K2CdNhUP2DkRumUo31C3fevVxNA=.trap.gz (244 of 311)
+[2024-03-25 16:40:06] Importing runners.py.zEiIspwkn56Q-m-GxJ6FO2h5ALc=.trap.gz (245 of 311)
+[2024-03-25 16:40:06] Importing runpy.py.EqlLS71TY2CPA6lVWskdFhm8Uxg=.trap.gz (246 of 311)
+[2024-03-25 16:40:06] Importing select.dFRuZ39J-neFZcNm08H60Xno4Do=.trap.gz (247 of 311)
+[2024-03-25 16:40:06] Importing selector_events.py.YOdOtUs7XI4nWw5tL42qCZoyt4g=.trap.gz (248 of 311)
+[2024-03-25 16:40:06] Importing selectors.py.hHxFMnDkDDEBhSe6wVN8fDFjrNQ=.trap.gz (249 of 311)
+[2024-03-25 16:40:06] Importing server.py.g0fEyLBPQPiIX7oddI0-leE0GjI=.trap.gz (250 of 311)
+[2024-03-25 16:40:06] Importing shlex.py.YiwBd_jqcoEPnva2aG6GvjYDJ48=.trap.gz (251 of 311)
+[2024-03-25 16:40:06] Importing shutil.py.-CaVO1_eMEVqLJDK1yZDDhZFbh0=.trap.gz (252 of 311)
+[2024-03-25 16:40:06] Importing signal.py.u21vo-pSbDz0QOuiMkahufjOfgc=.trap.gz (253 of 311)
+[2024-03-25 16:40:06] Importing signals.py.xxoojAkXeoYXcQcrCflScrcexXc=.trap.gz (254 of 311)
+[2024-03-25 16:40:06] Importing socket.py.0TvGRhqPT9YFH6VEQSKhghRjciA=.trap.gz (255 of 311)
+[2024-03-25 16:40:06] Importing socketserver.py.R5XsG3Qu6cGuqsDAb0AYOMrSyFI=.trap.gz (256 of 311)
+[2024-03-25 16:40:06] Importing sourceLocationPrefix.trap.gz (257 of 311)
+[2024-03-25 16:40:06] Importing spawn.py.-RDm7zFek07Dzn7EadxXx_Ov0cw=.trap.gz (258 of 311)
+[2024-03-25 16:40:06] Importing sre_compile.py.V_S63htV286IL4cUBRCQYlvKALE=.trap.gz (259 of 311)
+[2024-03-25 16:40:06] Importing sre_constants.py.3kIeZ1O5N5snakkHbeJOc7gHYW8=.trap.gz (260 of 311)
+[2024-03-25 16:40:06] Importing sre_parse.py.W6UX-vKRJK0ZgKoPHFP8-vBtgok=.trap.gz (261 of 311)
+[2024-03-25 16:40:06] Importing ssl.py.XZO04tS0x1XFYVXSCHccYrMa7Uk=.trap.gz (262 of 311)
+[2024-03-25 16:40:06] Importing sslproto.py.e5whYRwpiH-U2TGDjqhjn7UG-DE=.trap.gz (263 of 311)
+[2024-03-25 16:40:06] Importing staggered.py.dyzJuot0ePjsDVXhspRZALvLA-4=.trap.gz (264 of 311)
+[2024-03-25 16:40:06] Importing stat.py.J9yRaEL37FY8_8TCsSCTzImB9UA=.trap.gz (265 of 311)
+[2024-03-25 16:40:06] Importing statistics.py.M8Kkl_8Jw75FZQnyVq_D7EYQDUA=.trap.gz (266 of 311)
+[2024-03-25 16:40:06] Importing streams.py.9fgUTgAe1yCitAHHmxvGoUSHF9E=.trap.gz (267 of 311)
+[2024-03-25 16:40:06] Importing string.py.8Lwl0Pll8CnIkXaVFYRpJ0ieNYU=.trap.gz (268 of 311)
+[2024-03-25 16:40:06] Importing struct.py.2vtUMLsWDxz6hnnMYpC2ajt7NnU=.trap.gz (269 of 311)
+[2024-03-25 16:40:06] Importing subprocess.py.5kzF67Q9qXyp9NvyabqIy0vq2tM=.trap.gz (270 of 311)
+[2024-03-25 16:40:06] Importing subprocess.py._6U9F47FXDFtreDmN5hUYdn-V1w=.trap.gz (271 of 311)
+[2024-03-25 16:40:06] Importing suite.py.g2iWlRI6VVq2NG_AXWeQTb8bLmg=.trap.gz (272 of 311)
+[2024-03-25 16:40:06] Importing sys.kEcgKFBa6rMAvCoC5QeM0msjYu8=.trap.gz (273 of 311)
+[2024-03-25 16:40:06] Importing sysconfig.py.rmW-hWS_iJF0vcqsReA5abgHw8s=.trap.gz (274 of 311)
+[2024-03-25 16:40:06] Importing tarfile.py.QGKiHoX7rdRu5GZ7CvTV4yTDi5A=.trap.gz (275 of 311)
+[2024-03-25 16:40:06] Importing tasks.py.SNbTmSC5PLCzqb12LIqkavlIOAs=.trap.gz (276 of 311)
+[2024-03-25 16:40:06] Importing tempfile.py.3W8rmp0kQD1dxepWqfcu9DUt2Pc=.trap.gz (277 of 311)
+[2024-03-25 16:40:06] Importing termios.mFHMbCt5ev4kDwjt6wnqRg_blCE=.trap.gz (278 of 311)
+[2024-03-25 16:40:06] Importing textwrap.py.sW669ND48r_kvmx8nEsunT5Bnck=.trap.gz (279 of 311)
+[2024-03-25 16:40:06] Importing thread.py.vprhj5NDrVE1L-oDm6LlABDlon4=.trap.gz (280 of 311)
+[2024-03-25 16:40:06] Importing threading.py.CFA_VAzdLMSOhkXwMHhr4Gvwy68=.trap.gz (281 of 311)
+[2024-03-25 16:40:06] Importing threads.py.HleXm8a3dnsuKtt4bwMVp1XhgPk=.trap.gz (282 of 311)
+[2024-03-25 16:40:06] Importing time.wCmss7I50qkhpvhD8Nlo27vVl08=.trap.gz (283 of 311)
+[2024-03-25 16:40:06] Importing token.py.h7ijmXLnVNwmwbAEZ7_0lEbpWH4=.trap.gz (284 of 311)
+[2024-03-25 16:40:06] Importing tokenize.py.tWp_eS9JKJoxWVebd06QyAQevZo=.trap.gz (285 of 311)
+[2024-03-25 16:40:06] Importing traceback.py.4H5BGvOndkCI-d6iEQbWOapIR6Q=.trap.gz (286 of 311)
+[2024-03-25 16:40:06] Importing tracemalloc.py.qmYhd7gYu2rWipN4f7-qm8v4jNs=.trap.gz (287 of 311)
+[2024-03-25 16:40:06] Importing transports.py.zRR_koYG8y1mJ1_POHwO8If16Co=.trap.gz (288 of 311)
+[2024-03-25 16:40:06] Importing trsock.py._5CtRWytC_oRpMaUo3Qvo77Aq1c=.trap.gz (289 of 311)
+[2024-03-25 16:40:06] Importing tty.py.pmcKsXPd9KV6NIuqrGutqvpWxj8=.trap.gz (290 of 311)
+[2024-03-25 16:40:06] Importing types.py.syZAWsoQ87HdVfNhnBra1NPIzaI=.trap.gz (291 of 311)
+[2024-03-25 16:40:06] Importing typing.py.83jTVChyQs-Mp6QRrsBc-haXD9I=.trap.gz (292 of 311)
+[2024-03-25 16:40:06] Importing unicodedata.v6unA1hggS-aJslj2A-WEo-abn0=.trap.gz (293 of 311)
+[2024-03-25 16:40:06] Importing unittest.HGpFx1k9kuJs9iYfNIf53caR94c=.trap.gz (294 of 311)
+[2024-03-25 16:40:06] Importing unix_events.py.Tl9yu7sRfF13eZ0O5zFUTq8oES0=.trap.gz (295 of 311)
+[2024-03-25 16:40:06] Importing urllib.RHGgQh6m7RBb2fbOdpbu-i-teDY=.trap.gz (296 of 311)
+[2024-03-25 16:40:06] Importing util.py.PCg4O7p7XzyB5HAZf0Pc4N84cWw=.trap.gz (297 of 311)
+[2024-03-25 16:40:06] Importing util.py.bVE1KoFVOt1VYHa_4lyj-bJi18M=.trap.gz (298 of 311)
+[2024-03-25 16:40:06] Importing util.py.oKHZfO46O51uk3vAg18mGkXAxxk=.trap.gz (299 of 311)
+[2024-03-25 16:40:06] Importing utils.py.AdcY8DNofdjkHyoTwrKbtkn2Df8=.trap.gz (300 of 311)
+[2024-03-25 16:40:06] Importing uu.py.6ISKiexjfgHb_9FXBY7nOnEPOWc=.trap.gz (301 of 311)
+[2024-03-25 16:40:06] Importing warnings.py.OiTzpGNAYKVhRAFzNbMKhmgUjR8=.trap.gz (302 of 311)
+[2024-03-25 16:40:06] Importing weakref.py.j_BMMI1ca1T6MybrKM8PxL54i0M=.trap.gz (303 of 311)
+[2024-03-25 16:40:07] Importing webbrowser.py.gXbvFZQtoIYC2EAnZs7nPzvZ4Q4=.trap.gz (304 of 311)
+[2024-03-25 16:40:07] Importing windows_events.py.RvjULz5OItKnffh8a-lAbcXi4kw=.trap.gz (305 of 311)
+[2024-03-25 16:40:07] Importing windows_utils.py.idb8LXfaXVYAKVWnwT1yHeOJcEs=.trap.gz (306 of 311)
+[2024-03-25 16:40:07] Importing xml.5W88hKQ2u4oHtHeO-50th5f9io4=.trap.gz (307 of 311)
+[2024-03-25 16:40:07] Importing xmlrpc.jfu8NBc3DKrPfjLnGX_I_wNkbyY=.trap.gz (308 of 311)
+[2024-03-25 16:40:07] Importing zipfile.py.iwxBodLjaKnh3ortt7FKeGuqzlU=.trap.gz (309 of 311)
+[2024-03-25 16:40:07] Importing zipimport.py.fITKsn7BWlEEAdVv0Sd4cRCyEbU=.trap.gz (310 of 311)
+[2024-03-25 16:40:07] Importing zlib.Z1TqIW7aCrKbkr6VtnXB-3lBxWM=.trap.gz (311 of 311)
+[2024-03-25 16:40:07] [PROGRESS] dataset import> Merging relations
+[2024-03-25 16:40:07] Merging 1 fragment for 'files'.
+[2024-03-25 16:40:07] Merged 1800 bytes (1.76 KiB) for 'files'.
+[2024-03-25 16:40:07] Merging 1 fragment for 'folders'.
+[2024-03-25 16:40:07] Merged 240 bytes for 'folders'.
+[2024-03-25 16:40:07] Merging 1 fragment for 'containerparent'.
+[2024-03-25 16:40:07] Merged 2032 bytes (1.98 KiB) for 'containerparent'.
+[2024-03-25 16:40:07] Merging 1 fragment for 'py_flags_versioned'.
+[2024-03-25 16:40:07] Merged 816 bytes for 'py_flags_versioned'.
+[2024-03-25 16:40:07] Merging 1 fragment for 'py_cobjects'.
+[2024-03-25 16:40:07] Merged 172012 bytes (167.98 KiB) for 'py_cobjects'.
+[2024-03-25 16:40:07] Merging 1 fragment for 'py_cobjecttypes'.
+[2024-03-25 16:40:07] Merged 328632 bytes (320.93 KiB) for 'py_cobjecttypes'.
+[2024-03-25 16:40:07] Merging 1 fragment for 'py_cobject_sources'.
+[2024-03-25 16:40:07] Merged 348016 bytes (339.86 KiB) for 'py_cobject_sources'.
+[2024-03-25 16:40:07] Merging 1 fragment for 'py_cobjectnames'.
+[2024-03-25 16:40:07] Merged 328632 bytes (320.93 KiB) for 'py_cobjectnames'.
+[2024-03-25 16:40:07] Merging 1 fragment for 'py_cmembers_versioned'.
+[2024-03-25 16:40:07] Merged 145616 bytes (142.20 KiB) for 'py_cmembers_versioned'.
+[2024-03-25 16:40:07] Merging 1 fragment for 'py_special_objects'.
+[2024-03-25 16:40:07] Merged 336 bytes for 'py_special_objects'.
+[2024-03-25 16:40:07] Merging 1 fragment for 'py_citems'.
+[2024-03-25 16:40:07] Merged 4524 bytes (4.42 KiB) for 'py_citems'.
+[2024-03-25 16:40:07] Merging 1 fragment for 'ext_rettype'.
+[2024-03-25 16:40:07] Merged 12712 bytes (12.41 KiB) for 'ext_rettype'.
+[2024-03-25 16:40:07] Merging 1 fragment for 'ext_argtype'.
+[2024-03-25 16:40:07] Merged 25536 bytes (24.94 KiB) for 'ext_argtype'.
+[2024-03-25 16:40:07] Merging 1 fragment for 'ext_argreturn'.
+[2024-03-25 16:40:07] Merged 72 bytes for 'ext_argreturn'.
+[2024-03-25 16:40:07] Merging 1 fragment for 'ext_proptype'.
+[2024-03-25 16:40:07] Merged 1072 bytes (1.05 KiB) for 'ext_proptype'.
+[2024-03-25 16:40:07] Merging 1 fragment for 'py_Modules'.
+[2024-03-25 16:40:07] Merged 968 bytes for 'py_Modules'.
+[2024-03-25 16:40:07] Merging 1 fragment for 'py_module_path'.
+[2024-03-25 16:40:07] Merged 1936 bytes (1.89 KiB) for 'py_module_path'.
+[2024-03-25 16:40:07] Merging 2 fragments for 'variable'.
+[2024-03-25 16:40:07] Merged 514980 bytes (502.91 KiB) for 'variable'.
+[2024-03-25 16:40:07] Merging 1 fragment for 'py_extracted_version'.
+[2024-03-25 16:40:07] Merged 1800 bytes (1.76 KiB) for 'py_extracted_version'.
+[2024-03-25 16:40:07] Merging 1 fragment for 'py_stmt_lists'.
+[2024-03-25 16:40:07] Merged 359100 bytes (350.68 KiB) for 'py_stmt_lists'.
+[2024-03-25 16:40:07] Merging 1 fragment for 'py_stmts'.
+[2024-03-25 16:40:07] Merged 1104688 bytes (1.05 MiB) for 'py_stmts'.
+[2024-03-25 16:40:07] Merging 4 fragments for 'py_scopes'.
+[2024-03-25 16:40:07] Merged 2860048 bytes (2.73 MiB) for 'py_scopes'.
+[2024-03-25 16:40:07] Merging 3 fragments for 'py_exprs'.
+[2024-03-25 16:40:07] Merged 4615408 bytes (4.40 MiB) for 'py_exprs'.
+[2024-03-25 16:40:07] Merging 2 fragments for 'py_strs'.
+[2024-03-25 16:40:07] Merged 1351308 bytes (1.29 MiB) for 'py_strs'.
+[2024-03-25 16:40:07] Merging 1 fragment for 'py_expr_lists'.
+[2024-03-25 16:40:07] Merged 977124 bytes (954.22 KiB) for 'py_expr_lists'.
+[2024-03-25 16:40:07] Merging 2 fragments for 'py_expr_contexts'.
+[2024-03-25 16:40:07] Merged 2282064 bytes (2.18 MiB) for 'py_expr_contexts'.
+[2024-03-25 16:40:07] Merging 2 fragments for 'py_variables'.
+[2024-03-25 16:40:07] Merged 1162136 bytes (1.11 MiB) for 'py_variables'.
+[2024-03-25 16:40:07] Merging 1 fragment for 'py_operators'.
+[2024-03-25 16:40:07] Merged 71076 bytes (69.41 KiB) for 'py_operators'.
+[2024-03-25 16:40:07] Merging 1 fragment for 'py_numbers'.
+[2024-03-25 16:40:07] Merged 220896 bytes (215.72 KiB) for 'py_numbers'.
+[2024-03-25 16:40:07] Merging 1 fragment for 'py_Classes'.
+[2024-03-25 16:40:07] Merged 6792 bytes (6.63 KiB) for 'py_Classes'.
+[2024-03-25 16:40:07] Merging 1 fragment for 'py_arguments'.
+[2024-03-25 16:40:07] Merged 58280 bytes (56.91 KiB) for 'py_arguments'.
+[2024-03-25 16:40:07] Merging 1 fragment for 'py_Functions'.
+[2024-03-25 16:40:07] Merged 61696 bytes (60.25 KiB) for 'py_Functions'.
+[2024-03-25 16:40:07] Merging 1 fragment for 'py_parameter_lists'.
+[2024-03-25 16:40:07] Merged 59448 bytes (58.05 KiB) for 'py_parameter_lists'.
+[2024-03-25 16:40:07] Merging 1 fragment for 'py_bools'.
+[2024-03-25 16:40:07] Merged 35872 bytes (35.03 KiB) for 'py_bools'.
+[2024-03-25 16:40:07] Merging 4 fragments for 'py_flow_bb_node'.
+[2024-03-25 16:40:07] Merged 5663792 bytes (5.40 MiB) for 'py_flow_bb_node'.
+[2024-03-25 16:40:07] Merging 1 fragment for 'py_scope_flow'.
+[2024-03-25 16:40:07] Merged 755868 bytes (738.15 KiB) for 'py_scope_flow'.
+[2024-03-25 16:40:07] Merging 4 fragments for 'py_successors'.
+[2024-03-25 16:40:07] Merged 2959832 bytes (2.82 MiB) for 'py_successors'.
+[2024-03-25 16:40:07] Merging 4 fragments for 'py_idoms'.
+[2024-03-25 16:40:08] Merged 2761472 bytes (2.63 MiB) for 'py_idoms'.
+[2024-03-25 16:40:08] Merging 1 fragment for 'py_ssa_var'.
+[2024-03-25 16:40:08] Merged 395008 bytes (385.75 KiB) for 'py_ssa_var'.
+[2024-03-25 16:40:08] Merging 1 fragment for 'py_ssa_defn'.
+[2024-03-25 16:40:08] Merged 388320 bytes (379.22 KiB) for 'py_ssa_defn'.
+[2024-03-25 16:40:08] Merging 1 fragment for 'py_ssa_use'.
+[2024-03-25 16:40:08] Merged 711016 bytes (694.35 KiB) for 'py_ssa_use'.
+[2024-03-25 16:40:08] Merging 4 fragments for 'locations_ast'.
+[2024-03-25 16:40:08] Merged 9308688 bytes (8.88 MiB) for 'locations_ast'.
+[2024-03-25 16:40:08] Merging 1 fragment for 'py_scope_location'.
+[2024-03-25 16:40:08] Merged 70288 bytes (68.64 KiB) for 'py_scope_location'.
+[2024-03-25 16:40:08] Merging 1 fragment for 'py_comments'.
+[2024-03-25 16:40:08] Merged 160908 bytes (157.14 KiB) for 'py_comments'.
+[2024-03-25 16:40:08] Merging 1 fragment for 'py_codelines'.
+[2024-03-25 16:40:08] Merged 70120 bytes (68.48 KiB) for 'py_codelines'.
+[2024-03-25 16:40:08] Merging 1 fragment for 'py_commentlines'.
+[2024-03-25 16:40:08] Merged 70120 bytes (68.48 KiB) for 'py_commentlines'.
+[2024-03-25 16:40:08] Merging 1 fragment for 'py_docstringlines'.
+[2024-03-25 16:40:08] Merged 70120 bytes (68.48 KiB) for 'py_docstringlines'.
+[2024-03-25 16:40:08] Merging 1 fragment for 'py_alllines'.
+[2024-03-25 16:40:08] Merged 70120 bytes (68.48 KiB) for 'py_alllines'.
+[2024-03-25 16:40:08] Merging 1 fragment for 'numlines'.
+[2024-03-25 16:40:08] Merged 3552 bytes (3.47 KiB) for 'numlines'.
+[2024-03-25 16:40:08] Merging 4 fragments for 'py_locations'.
+[2024-03-25 16:40:08] Merged 2925200 bytes (2.79 MiB) for 'py_locations'.
+[2024-03-25 16:40:08] Merging 1 fragment for 'py_alias_lists'.
+[2024-03-25 16:40:08] Merged 12120 bytes (11.84 KiB) for 'py_alias_lists'.
+[2024-03-25 16:40:08] Merging 1 fragment for 'py_aliases'.
+[2024-03-25 16:40:08] Merged 21828 bytes (21.32 KiB) for 'py_aliases'.
+[2024-03-25 16:40:08] Merging 1 fragment for 'py_ints'.
+[2024-03-25 16:40:08] Merged 14888 bytes (14.54 KiB) for 'py_ints'.
+[2024-03-25 16:40:08] Merging 1 fragment for 'py_dict_item_lists'.
+[2024-03-25 16:40:08] Merged 14208 bytes (13.88 KiB) for 'py_dict_item_lists'.
+[2024-03-25 16:40:08] Merging 1 fragment for 'py_dict_items'.
+[2024-03-25 16:40:08] Merged 114176 bytes (111.50 KiB) for 'py_dict_items'.
+[2024-03-25 16:40:08] Merging 1 fragment for 'py_exports'.
+[2024-03-25 16:40:08] Merged 16312 bytes (15.93 KiB) for 'py_exports'.
+[2024-03-25 16:40:08] Merging 1 fragment for 'py_cmpop_lists'.
+[2024-03-25 16:40:08] Merged 61160 bytes (59.73 KiB) for 'py_cmpop_lists'.
+[2024-03-25 16:40:08] Merging 1 fragment for 'py_cmpops'.
+[2024-03-25 16:40:08] Merged 123584 bytes (120.69 KiB) for 'py_cmpops'.
+[2024-03-25 16:40:08] Merging 1 fragment for 'py_str_lists'.
+[2024-03-25 16:40:08] Merged 656 bytes for 'py_str_lists'.
+[2024-03-25 16:40:08] Merging 1 fragment for 'py_true_successors'.
+[2024-03-25 16:40:08] Merged 123912 bytes (121.01 KiB) for 'py_true_successors'.
+[2024-03-25 16:40:08] Merging 1 fragment for 'py_false_successors'.
+[2024-03-25 16:40:08] Merged 122624 bytes (119.75 KiB) for 'py_false_successors'.
+[2024-03-25 16:40:08] Merging 1 fragment for 'py_StringPart_lists'.
+[2024-03-25 16:40:08] Merged 3552 bytes (3.47 KiB) for 'py_StringPart_lists'.
+[2024-03-25 16:40:08] Merging 1 fragment for 'py_StringParts'.
+[2024-03-25 16:40:08] Merged 12096 bytes (11.81 KiB) for 'py_StringParts'.
+[2024-03-25 16:40:08] Merging 1 fragment for 'py_unaryops'.
+[2024-03-25 16:40:08] Merged 31428 bytes (30.69 KiB) for 'py_unaryops'.
+[2024-03-25 16:40:08] Merging 1 fragment for 'py_boolops'.
+[2024-03-25 16:40:08] Merged 22824 bytes (22.29 KiB) for 'py_boolops'.
+[2024-03-25 16:40:08] Merging 1 fragment for 'py_exception_successors'.
+[2024-03-25 16:40:08] Merged 89680 bytes (87.58 KiB) for 'py_exception_successors'.
+[2024-03-25 16:40:08] Merging 1 fragment for 'py_ssa_phi'.
+[2024-03-25 16:40:08] Merged 75424 bytes (73.66 KiB) for 'py_ssa_phi'.
+[2024-03-25 16:40:08] Merging 1 fragment for 'sourceLocationPrefix'.
+[2024-03-25 16:40:08] Merged 4 bytes for 'sourceLocationPrefix'.
+[2024-03-25 16:40:08] Saving string and id pools to disk.
+[2024-03-25 16:40:08] Finished importing TRAP files.
+[2024-03-25 16:40:08] Read 149.41 MiB of uncompressed TRAP data.
+[2024-03-25 16:40:08] Relation data size: 42.31 MiB (merge rate: 46.22 MiB/s)
+[2024-03-25 16:40:08] String pool size: 9.53 MiB
+[2024-03-25 16:40:08] ID pool size: 4.75 MiB
+[2024-03-25 16:40:08] [PROGRESS] dataset import> Finished writing database (relations: 42.31 MiB; string pool: 9.53 MiB).
+[2024-03-25 16:40:08] Pausing evaluation to close the cache at sequence stamp o+3
+[2024-03-25 16:40:08] The disk cache is freshly trimmed; leave it be.
+[2024-03-25 16:40:08] Unpausing evaluation
+[2024-03-25 16:40:08] Plumbing command codeql dataset import completed.
+[2024-03-25 16:40:08] [PROGRESS] database finalize> TRAP import complete (6.6s).
+[2024-03-25 16:40:08] Running plumbing command: codeql database cleanup --mode=trim -- /home/ec2-user/Desktop/thesis/copilot_eval/analyze_dbs
+[2024-03-25 16:40:08] [PROGRESS] database cleanup> Cleaning up existing TRAP files after import...
+[2024-03-25 16:40:08] [PROGRESS] database cleanup> TRAP files cleaned up (12ms).
+[2024-03-25 16:40:08] [PROGRESS] database cleanup> Cleaning up scratch directory...
+[2024-03-25 16:40:08] [PROGRESS] database cleanup> Scratch directory cleaned up (17ms).
+[2024-03-25 16:40:08] Running plumbing command: codeql dataset cleanup --mode=trim -- /home/ec2-user/Desktop/thesis/copilot_eval/analyze_dbs/db-python
+[2024-03-25 16:40:08] [PROGRESS] dataset cleanup> Cleaning up dataset in /home/ec2-user/Desktop/thesis/copilot_eval/analyze_dbs/db-python.
+[2024-03-25 16:40:08] Trimming disk cache at /home/ec2-user/Desktop/thesis/copilot_eval/analyze_dbs/db-python/default/cache in mode trim.
+[2024-03-25 16:40:08] Sequence stamp origin is -6203544210081662878
+[2024-03-25 16:40:08] Pausing evaluation to quickly trim memory at sequence stamp o+0
+[2024-03-25 16:40:08] Unpausing evaluation
+[2024-03-25 16:40:08] Pausing evaluation to zealously trim disk at sequence stamp o+1
+[2024-03-25 16:40:08] Unpausing evaluation
+[2024-03-25 16:40:08] Trimming completed (3ms): Trimmed disposable data from cache.
+[2024-03-25 16:40:08] Pausing evaluation to close the cache at sequence stamp o+2
+[2024-03-25 16:40:08] The disk cache is freshly trimmed; leave it be.
+[2024-03-25 16:40:08] Unpausing evaluation
+[2024-03-25 16:40:08] [PROGRESS] dataset cleanup> Trimmed disposable data from cache.
+[2024-03-25 16:40:08] [PROGRESS] dataset cleanup> Finalizing dataset in /home/ec2-user/Desktop/thesis/copilot_eval/analyze_dbs/db-python
+[2024-03-25 16:40:08] [DETAILS] dataset cleanup> Finished deleting ID pool from /home/ec2-user/Desktop/thesis/copilot_eval/analyze_dbs/db-python (1ms).
+[2024-03-25 16:40:08] Plumbing command codeql dataset cleanup completed.
+[2024-03-25 16:40:08] Plumbing command codeql database cleanup completed with status 0.
+[2024-03-25 16:40:08] [PROGRESS] database finalize> Finished zipping source archive (1.19 MiB).
+[2024-03-25 16:40:08] Plumbing command codeql database finalize completed.
+[2024-03-25 16:40:08] [PROGRESS] database create> Successfully created database at /home/ec2-user/Desktop/thesis/copilot_eval/analyze_dbs.
+[2024-03-25 16:40:08] Terminating normally.

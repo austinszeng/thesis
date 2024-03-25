@@ -1,0 +1,14 @@
+[2024-03-25 16:41:53] This is codeql database analyze analyze_dbs /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/IncompleteHostnameRegExp.ql --format=csv --output=cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/codeql_results.csv
+[2024-03-25 16:41:53] Log file was started late.
+[2024-03-25 16:41:53] [PROGRESS] database analyze> Running queries.
+[2024-03-25 16:41:53] Running plumbing command: codeql database run-queries --evaluator-log-level=5 --warnings=show --qlconfig-file=/home/ec2-user/Desktop/thesis/copilot_eval/qlconfig.yml --no-rerun --interpret-passthrough=null,--format=csv,-o=/home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/codeql_results.csv,--max-paths=4,--csv-location-format=line-column,--print-diagnostics-summary,--print-metrics-summary,--qlconfig-file=/home/ec2-user/Desktop/thesis/copilot_eval/qlconfig.yml,--,/home/ec2-user/Desktop/thesis/copilot_eval/analyze_dbs,/home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/IncompleteHostnameRegExp.ql -- /home/ec2-user/Desktop/thesis/copilot_eval/analyze_dbs /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/IncompleteHostnameRegExp.ql
+[2024-03-25 16:41:53] Calling plumbing command: codeql resolve ram --dataset=/home/ec2-user/Desktop/thesis/copilot_eval/analyze_dbs/db-python --format=json
+[2024-03-25 16:41:53] [PROGRESS] resolve ram> Stringpool size measured as 9994650
+[2024-03-25 16:41:53] Plumbing command codeql resolve ram completed:
+                      [
+                        "-J-Xmx6381M",
+                        "--off-heap-ram=7938"
+                      ]
+[2024-03-25 16:41:53] Chaining via /tmp/codeql.ykBpV42c to plumbing: execute queries -J-Xmx6381M --off-heap-ram=7938 --verbosity=progress --logdir=/home/ec2-user/Desktop/thesis/copilot_eval/analyze_dbs/log --evaluator-log-level=5 --warnings=show --qlconfig-file=/home/ec2-user/Desktop/thesis/copilot_eval/qlconfig.yml --no-rerun --interpret-passthrough=null,--format=csv,-o=/home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/codeql_results.csv,--max-paths=4,--csv-location-format=line-column,--print-diagnostics-summary,--print-metrics-summary,--qlconfig-file=/home/ec2-user/Desktop/thesis/copilot_eval/qlconfig.yml,--,/home/ec2-user/Desktop/thesis/copilot_eval/analyze_dbs,/home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/IncompleteHostnameRegExp.ql --output=/home/ec2-user/Desktop/thesis/copilot_eval/analyze_dbs/results -- /home/ec2-user/Desktop/thesis/copilot_eval/analyze_dbs/db-python /home/ec2-user/Desktop/thesis/copilot_eval/cwe_test/cwe-20/codeql-eg-IncompleteHostnameRegExp/IncompleteHostnameRegExp.ql
+[2024-03-25 16:41:53] Plumbing command codeql database run-queries completed with status 70.
+[2024-03-25 16:41:53] Exiting with code 70
