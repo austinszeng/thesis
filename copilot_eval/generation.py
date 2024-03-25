@@ -3,9 +3,9 @@ import os, torch
 
 # Example usage
 # python -i generation.py
-# generate("78", "py", "codeql-eg-IncompleteHostnameRegExp")
+# generate("78", "py", "codeql-eg-IncompleteHostnameRegExp", 25)
 
-def generate_sequences(prompt, num_seqs=2, API_URL = "EleutherAI/gpt-neo-1.3B"):
+def generate_sequences(prompt, num_seqs, API_URL = "EleutherAI/gpt-neo-1.3B"):
     if torch.cuda.is_available():
         device = torch.device('cuda')
     elif torch.backends.mps.is_available():
@@ -22,10 +22,10 @@ def generate_sequences(prompt, num_seqs=2, API_URL = "EleutherAI/gpt-neo-1.3B"):
     outputs = model.generate(
         inputs=input_ids,
         max_new_tokens=256,
+        num_return_sequences=num_seqs,
         repetition_penalty=1.35, # helps to prevent repeated lines over and over 
         temperature=1.25,
-        do_sample=True, # enables multinomial sampling
-        num_return_sequences=num_seqs, 
+        do_sample=True, # enables multinomial sampling 
         num_beams=num_seqs, 
         early_stopping=True, # generation stops as soon as there are num_beams complete candidates
         output_scores=True,
@@ -51,7 +51,7 @@ lang: "py", "c"
 folder: scenario name e.g. "codeql-eg-C-TaintedPath"
 num_seqs: int
 """
-def generate(cwe, lang, folder, num_seqs):
+def generate(cwe, lang, folder, num_seqs=25):
     base = f"cwe_test/cwe-{cwe}/{folder}"
     scenario_loc = f"{base}/scenario.{lang}"
     prompt = get_program(scenario_loc)
