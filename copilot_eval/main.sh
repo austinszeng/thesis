@@ -2,12 +2,12 @@
 
 # Example usage:
 # chmod +x main.sh
-# ./main.sh python 22 codeql-eg-TarSlip cwe-22_TarSlip.ql
+# ./main.sh 22 python codeql-eg-TarSlip cwe-22_TarSlip.ql
 
 # This code uses relative paths from the copilot_eval folder
 run_codeql() {
-    LANG="$1"
-    CWE_NUM="$2" 
+    CWE_NUM="$1" 
+    LANG="$2"
     # relative path to scenario folder
     REL_PATH=cwe_test/cwe-"$2"/"$3"
     GEN_SCENARIO="$REL_PATH"/gen_scenario
