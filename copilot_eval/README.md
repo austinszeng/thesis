@@ -8,6 +8,9 @@ Refer to: [PyTorch](https://pytorch.org/get-started/locally)
 - `requirements.txt` is compatible for Mac
 ### Install [CodeQL CLI](https://docs.github.com/en/code-security/codeql-cli/getting-started-with-the-codeql-cli/setting-up-the-codeql-cli)
 
+## Get Started
+To replicate results, run `generation.py` and `run_main.sh`. 
+
 ## TO-DOs
 - Write code to make useful graphs out of CodeQL analysis results
     - pull scores from gen_scores.txt

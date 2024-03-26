@@ -1,2 +1,0 @@
-generate("798", "py", "codeql-eg-HardcodedCredentials-b", 25)
-generate("798", "py", "codeql-eg-HardcodedCredentials-c", 25)
