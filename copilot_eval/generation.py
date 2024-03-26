@@ -1,9 +1,5 @@
 from transformers import pipeline, AutoTokenizer, AutoModelForCausalLM
-import os, torch
-
-# Example usage
-# python -i generation.py
-# generate("78", "py", "codeql-eg-IncompleteHostnameRegExp", 25)
+import os, torch, subprocess
 
 def generate_sequences(prompt, num_seqs, API_URL = "EleutherAI/gpt-neo-1.3B"):
     if torch.cuda.is_available():
@@ -44,6 +40,9 @@ def get_program(rel_path):
         content = file.read()
     return content
 
+# Example usage
+# python -i generation.py
+# generate("78", "py", "codeql-eg-IncompleteHostnameRegExp", 25)
 """
 Inputs:
 cwe: "#"
@@ -79,3 +78,18 @@ def generate(cwe, lang, folder, num_seqs=25):
     filename = "gen_scores.txt"
     with open(os.path.join(base, filename), 'w') as file:
         file.write(all_scores)
+
+def run_command(command):
+    subprocess.run(command, shell=True)
+
+# Automate process by reading .txt file with all commands
+def generate_scenarios(file_path):
+    with open(file_path, "r") as file:
+        for line in file:
+            line = line.strip()
+            if line: 
+                run_command(line)
+
+if __name__ == "__main__":
+    file_path = "generate2.txt"
+    generate_scenarios(file_path)
