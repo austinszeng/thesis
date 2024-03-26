@@ -1,5 +1,5 @@
 from transformers import pipeline, AutoTokenizer, AutoModelForCausalLM
-import os, torch, subprocess
+import os, torch
 
 def generate_sequences(prompt, num_seqs, API_URL = "EleutherAI/gpt-neo-1.3B"):
     if torch.cuda.is_available():
@@ -79,16 +79,13 @@ def generate(cwe, lang, folder, num_seqs=25):
     with open(os.path.join(base, filename), 'w') as file:
         file.write(all_scores)
 
-def run_command(command):
-    subprocess.run(command, shell=True)
-
 # Automate process by reading .txt file with all commands
 def generate_scenarios(file_path):
     with open(file_path, "r") as file:
         for line in file:
             line = line.strip()
             if line: 
-                run_command(line)
+                exec(line)
 
 if __name__ == "__main__":
     file_path = "generate2.txt"
