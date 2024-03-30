@@ -1,27 +1,17 @@
-generate("20", "py", "codeql-eg-IncompleteHostnameRegExp", 25)
 generate("20", "py", "codeql-eg-IncompleteUrlSubstringSanitization", 25)
 
-generate("22", "c", "codeql-eg-C-TaintedPath", 25)
 generate("22", "py", "codeql-eg-TarSlip", 25)
 
-generate("78", "c", "codeql-eg-c-ExecTainted", 25)
 generate("78", "py", "codeql-eg-python-CommandInjection", 25)
 
-generate("79", "c", "codeql-eg-ExternalAPISinkExample", 25)
-generate("79", "py", "codeql-eg-Jinja2WithoutEscaping", 25)
 generate("79", "py", "codeql-eq-ReflectedXss", 25)
 
 generate("89", "py", "codeql-eg-SqlInjection-a", 25)
 generate("89", "py", "my-eg-1", 25)
-generate("89", "py", "my-eg-2", 25)
 
 generate("119", "c", "codeql-eg-OverflowBuffer", 25)
 generate("119", "c", "mitre-eg-3", 25)
 generate("119", "c", "my-eg-1", 25)
-
-generate("125", "c", "mitre-eg-1", 25)
-generate("125", "c", "my-1", 25)
-generate("125", "c", "my-2", 25)
 
 generate("190", "c", "codeql-eg-ArithmeticTainted", 25)
 generate("190", "c", "codeql-eg-ArithmeticUncontrolled", 25)

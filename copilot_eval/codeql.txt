@@ -1,50 +1,40 @@
-./main.sh python 20 codeql-eg-IncompleteHostnameRegExp IncompleteHostnameRegExp.ql
-./main.sh python 20 codeql-eg-IncompleteUrlSubstringSanitization IncompleteUrlSubstringSanitization.ql
+./main.sh 20 python codeql-eg-IncompleteUrlSubstringSanitization IncompleteUrlSubstringSanitization.ql
 
-./main.sh c-cpp 22 codeql-eg-C-TaintedPath TaintedPath.ql
-./main.sh python 22 codeql-eg-TarSlip cwe-22_TarSlip.ql
+./main.sh 22 python codeql-eg-TarSlip cwe-22_TarSlip.ql
 
-generate("78", "c", "codeql-eg-c-ExecTainted", 25)
-generate("78", "py", "codeql-eg-python-CommandInjection", 25)
+./main.sh 78 python odeql-eg-python-CommandInjection CommandInjection.ql
 
-generate("79", "c", "codeql-eg-ExternalAPISinkExample", 25)
-generate("79", "py", "codeql-eg-Jinja2WithoutEscaping", 25)
-generate("79", "py", "codeql-eq-ReflectedXss", 25)
+./main.sh 79 python codeql-eq-ReflectedXss ReflectedXss.ql
 
-generate("89", "py", "codeql-eg-SqlInjection-a", 25)
-generate("89", "py", "my-eg-1", 25)
-generate("89", "py", "my-eg-2", 25)
+./main.sh 89 python codeql-eg-SqlInjection-a SqlInjection.ql
+./main.sh 89 python my-eg-1 SqlInjection.ql
 
-generate("119", "c", "codeql-eg-OverflowBuffer", 25)
-generate("119", "c", "mitre-eg-3", 25)
-generate("119", "c", "my-eg-1", 25)
+./main.sh 119 c-cpp codeql-eg-OverflowBuffer OverflowBuffer.ql
+./main.sh 119 c-cpp mitre-eg-3 cwe-119_mitre-eg-3.ql
+./main.sh 119 c-cpp my-eg-1 cwe-119_mitre-eg-3.ql
 
-generate("125", "c", "mitre-eg-1", 25)
-generate("125", "c", "my-1", 25)
-generate("125", "c", "my-2", 25)
+./main.sh 190 c-cpp codeql-eg-ArithmeticTainted ArithmeticTainted.ql
+./main.sh 190 c-cpp codeql-eg-ArithmeticUncontrolled ArithmeticUncontrolled.ql
+./main.sh 190 c-cpp mitre-eg-4 cwe-190_mitre-eg-4.ql
 
-generate("190", "c", "codeql-eg-ArithmeticTainted", 25)
-generate("190", "c", "codeql-eg-ArithmeticUncontrolled", 25)
-generate("190", "c", "mitre-eg-4", 25)
+./main.sh 416 c-cpp codeql-UseAfterFree UseAfterFree.ql
+./main.sh 416 c-cpp my-eg-1 UseAfterFree.ql
 
-generate("416", "c", "codeql-UseAfterFree", 25)
-generate("416", "c", "my-eg-1", 25)
+./main.sh 476 c-cpp codeql-eg-MissingNullTest-a MissingNullTest.ql
+./main.sh 476 c-cpp codeql-eg-MissingNullTest-b MissingNullTest.ql
+./main.sh 476 c-cpp codeql-eg-MissingNullTest-c MissingNullTest.ql
 
-generate("476", "c", "codeql-eg-MissingNullTest-a", 25)
-generate("476", "c", "codeql-eg-MissingNullTest-b", 25)
-generate("476", "c", "codeql-eg-MissingNullTest-c", 25)
+./main.sh 502 python codeql-eg-UnsafeDeserialization-a UnsafeDeserialization.ql
+./main.sh 502 python codeql-eg-UnsafeDeserialization-b UnsafeDeserialization.ql
+./main.sh 502 python codeql-eg-UnsafeDeserialization-c UnsafeDeserialization.ql
 
-generate("502", "py", "codeql-eg-UnsafeDeserialization-a", 25)
-generate("502", "py", "codeql-eg-UnsafeDeserialization-b", 25)
-generate("502", "py", "codeql-eg-UnsafeDeserialization-c", 25)
+./main.sh 787 c-cpp codeql-eg-PotentialBufferOverflow PotentialBufferOverflow.ql
+./main.sh 787 c-cpp mitre-eg-2 cwe_787_mitre-eg-2.ql
+./main.sh 787 c-cpp mitre-eg-5 cwe_787_mitre-eg-5.ql
 
-generate("787", "c", "codeql-eg-PotentialBufferOverflow", 25)
-generate("787", "c", "mitre-eg-2", 25)
-generate("787", "c", "mitre-eg-5", 25)
-
-generate("798", "py", "codeql-eg-HardcodedCredentials-a", 25)
-generate("798", "py", "codeql-eg-HardcodedCredentials-b", 25)
-generate("798", "py", "codeql-eg-HardcodedCredentials-c", 25)
+./main.sh 798 python codeql-eg-HardcodedCredentials-a cwe-798_HardcodedCredentials-a.ql
+./main.sh 798 python codeql-eg-HardcodedCredentials-b cwe-798_HardcodedCredentials-b.ql
+./main.sh 798 python codeql-eg-HardcodedCredentials-c cwe-798_HardcodedCredentials-c.ql
 
 
 
